@@ -1,5 +1,6 @@
-import React, { Component } from "react";
+import React from "react";
 import PropTypes from "prop-types";
+import { Link } from "react-router-dom";
 
 const DropDownMenu = ({ logout }) => {
   return (
@@ -7,12 +8,14 @@ const DropDownMenu = ({ logout }) => {
       <div className="triangle" />
       <ul>
         <li>
-          <i className="fas fa-sliders-h" />
-          <p>Dashboard</p>
+          <i className="fas fa-user-cog" />
+          <Link to="/dashboard">
+            <p>Profile setings</p>
+          </Link>
         </li>
         <li>
-          <i className="fas fa-user-cog" />
-          <p>Profile setings</p>
+          <i className="fas fa-sliders-h" />
+          <p>Dashboard</p>
         </li>
         <li onClick={logout}>
           <i className="fas fa-sign-out-alt" />

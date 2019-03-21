@@ -72,7 +72,7 @@ class App extends Component {
             <Route exact path="/" component={Contact} />
 
             {/* admin routes */}
-            <Route exact path="/admin" component={Dashboard} />
+            <Route exact path="/dashboard" component={Dashboard} />
 
             {/* auth routes */}
             <Route exact path="/signup" component={Signup} />
