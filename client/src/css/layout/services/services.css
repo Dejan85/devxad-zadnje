@@ -1,0 +1,183 @@
+/*
+ * ─── MAIN DIV ──────────────────────────────────────────────────────────────────
+ */
+
+.services {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-content: flex-start;
+  width: 100%;
+  height: 870px;
+}
+
+/*
+   * ─── TITLE OF SERVICES ──────────────────────────────────────────────────────────
+   */
+
+.services h1 {
+  width: 100%;
+  /* outline: 1px solid green; */
+  text-align: center;
+  padding-top: 150px;
+  font-size: 38px;
+  font-weight: 700;
+  /* font-family: Montserrat, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"; */
+  color: #212529;
+  font-family: "Dosis", sans-serif;
+}
+
+.opacity {
+  opacity: 1 !important;
+}
+
+/*
+   * ─── THREE LITLE BOX IN ─────────────────────────────────────────────────────────
+   */
+
+.services_box {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  width: 380px;
+  height: 314px;
+  /* outline: 1px solid green; */
+  text-align: center;
+  margin-top: 110px;
+}
+
+.circle {
+  display: flex;
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  background-color: #fed136;
+  justify-content: center;
+  align-items: center;
+}
+
+.services_box i {
+  font-size: 90px;
+  color: white;
+}
+
+.services_box p {
+  font-weight: 700;
+  font-family: Montserrat, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
+    "Segoe UI Symbol", "Noto Color Emoji";
+  font-size: 19px;
+  padding-top: 20px;
+  color: #212529;
+}
+
+.services_box span {
+  font-family: "Roboto Slab", -apple-system, BlinkMacSystemFont, "Segoe UI",
+    Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji",
+    "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  color: #6c757d;
+  line-height: 1.75;
+  display: block;
+  padding: 10px;
+  margin-top: 5px;
+}
+
+/*
+   * ─── ANIMATION ──────────────────────────────────────────────────────────────────
+   */
+
+@-webkit-keyframes zoomIn {
+  from {
+    opacity: 0;
+    -webkit-transform: scale3d(0.3, 0.3, 0.3);
+    transform: scale3d(0.3, 0.3, 0.3);
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+@keyframes zoomIn {
+  from {
+    opacity: 0;
+    -webkit-transform: scale3d(0.3, 0.3, 0.3);
+    transform: scale3d(0.3, 0.3, 0.3);
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+.zoomIn {
+  -webkit-animation-name: zoomIn;
+  animation-name: zoomIn;
+  animation-duration: 0.5s;
+}
+
+/*
+   * ─── FADE IN ─────────────────────────────────────────────────────────────────────
+   */
+
+@-webkit-keyframes fadeInUpBig {
+  from {
+    opacity: 0;
+    -webkit-transform: translate3d(0, 2000px, 0);
+    transform: translate3d(0, 2000px, 0);
+  }
+  to {
+    opacity: 1;
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes fadeInUpBig {
+  from {
+    opacity: 0;
+    -webkit-transform: translate3d(0, 2000px, 0);
+    transform: translate3d(0, 2000px, 0);
+  }
+  to {
+    opacity: 1;
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+.fadeInUpBig {
+  -webkit-animation-name: fadeInUpBig;
+  animation-name: fadeInUpBig;
+  animation-duration: 0.5s;
+}
+
+@-webkit-keyframes fadeInLeftBig {
+  from {
+    opacity: 0;
+    -webkit-transform: translate3d(-2000px, 0, 0);
+    transform: translate3d(-2000px, 0, 0);
+  }
+  to {
+    opacity: 1;
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes fadeInLeftBig {
+  from {
+    opacity: 0;
+    -webkit-transform: translate3d(-2000px, 0, 0);
+    transform: translate3d(-2000px, 0, 0);
+  }
+  to {
+    opacity: 1;
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+.fadeInLeftBig {
+  -webkit-animation-name: fadeInLeftBig;
+  animation-name: fadeInLeftBig;
+  animation-duration: 0.5s;
+}

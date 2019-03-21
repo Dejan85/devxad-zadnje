@@ -1,0 +1,33 @@
+@import url("./css/layout/nav/nav.css");
+@import url("./css/layout/home/home.css");
+@import url("./css/layout/services/services.css");
+@import url("./css/layout/work/work.css");
+/* @import url("./css/portfolio/portfolio.css");
+@import url("./css/portfolio/project.css");
+@import url("./css/portfolio/projectLive.css"); */
+
+@import url("./css/layout/about/about.css");
+/* @import url("./css/about/biography.css"); */
+
+@import url("./css/layout/contact/contact.css");
+/*
+ * ─── ADMIN CSS ──────────────────────────────────────────────────────────────────
+ */
+
+@import url("./css/admin/dashboard.css");
+@import url("./css/admin/project/add.css");
+
+/* auth css */
+@import url("./css/auth/signup_signin.css");
+
+* {
+  padding: 0;
+  margin: 0;
+}
+
+.App {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  align-items: center;
+}

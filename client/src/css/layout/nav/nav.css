@@ -1,0 +1,153 @@
+/*
+ * ─── NAV ────────────────────────────────────────────────────────────────────────
+ */
+
+.nav_container {
+    position: fixed;
+    z-index: 12;
+    width: 100%;
+    /* background: rgb(12, 12, 12); */
+    background: #212529;
+}
+
+.flex_nav_container {
+    display: flex;
+    margin: 0 auto;
+    max-width: 1170px;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+}
+
+nav {
+    padding-top: 20px;
+    /* outline: 1px solid orange; */
+}
+
+nav ul {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+    /* outline: 1px solid red; */
+}
+
+nav ul li {
+    /* outline: 1px solid white; */
+    list-style-type: none;
+    width: 70px;
+    color: white;
+    text-align: center;
+    font-weight: 600;
+    font-size: 12px;
+    user-select: none;
+    font-family: Montserrat, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+}
+
+nav ul li a {
+    cursor: pointer;
+    transition: 0.5s;
+}
+
+nav ul li a:hover {
+    color: #fed136;
+}
+
+.active {
+    color: #fed136;
+}
+
+.active_logo {
+    color: rgb(80, 78, 78) !important;
+}
+
+/*
+   * ─── LOGO ───────────────────────────────────────────────────────────────────────
+   */
+
+.logo {
+    font-family: "Indie Flower", cursive;
+    color: rgb(80, 78, 78) !important;
+    font-size: 25px;
+    font-weight: 700;
+    letter-spacing: 8px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    cursor: pointer;
+    user-select: none;
+}
+
+.logo span {
+    color: #fed136;
+    /* color: #c50d07fa; */
+}
+
+/*
+ * ─── USER ───────────────────────────────────────────────────────────────────────
+ */
+
+.user {
+    display: flex;
+    position: relative;
+    align-items: center;
+    width: 120px;
+    /* padding-left: 100px; */
+    cursor: pointer;
+    /* outline: 1px solid red; */
+}
+
+.avatar {
+    position: absolute;
+    right: 0;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: #fed136;
+}
+
+.user p {
+    padding-left: 18px;
+}
+
+.user p i {
+    padding-left: 5px;
+}
+
+/*
+ * ─── DROP DOWN MENU ─────────────────────────────────────────────────────────────
+ */
+
+.drop_down_menu {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    margin-top: 65px;
+    margin-left: 18px;
+    width: 300px;
+}
+
+.triangle {
+    margin-left: 34px;
+    width: 0;
+    height: 0;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-bottom: 10px solid white;
+    border-radius: 2px;
+}
+
+.drop_down_menu ul {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    background: white;
+}
+
+.drop_down_menu ul li {
+    display: flex;
+    color: black;
+    cursor: pointer;
+}
+
+.drop_down_menu ul li p {
+    padding-left: 10px;
+}

@@ -1,0 +1,353 @@
+.about {
+  display: flex;
+  flex-wrap: wrap;
+  box-sizing: border-box;
+  width: 51%;
+  padding-bottom: 100px;
+}
+
+.about h1 {
+  width: 100%;
+  text-align: center;
+  padding-top: 150px;
+  font-size: 38px;
+  font-weight: 700;
+  font-family: "Dosis", sans-serif;
+  color: #212529;
+  text-transform: uppercase;
+}
+
+/*
+   * ─── LEFT SIDE DIV  AND RIGHT SIDE DIV──────────────────────────────────────────────────────────────
+   */
+
+.about_left_div,
+.about_right_div {
+  /* outline: 1px solid red; */
+  width: 40%;
+  margin-top: 109px;
+}
+
+/******************this is only for left div*****************/
+
+.about_left_div_box {
+  text-align: right;
+  padding-right: 30px;
+}
+
+.about_left_div_box_2 {
+  text-align: right;
+  padding-right: 30px;
+  padding-top: 480px;
+}
+
+.about_left_div_box_3 {
+  text-align: right;
+  padding-right: 30px;
+  padding-top: 480px;
+}
+
+/******************this is only for right div*****************/
+
+.about_right_div_box {
+  padding-left: 30px;
+  padding-top: 356px;
+}
+
+.about_right_div_box_2 {
+  padding-left: 30px;
+  padding-top: 482px;
+}
+
+.about_left_div_box h2,
+.about_left_div_box h3,
+.about_left_div_box_2 h2,
+.about_left_div_box_2 h3,
+.about_left_div_box_3 h2,
+.about_left_div_box_3 h3,
+.about_right_div_box h2,
+.about_right_div_box h3,
+.about_right_div_box_2 h2,
+.about_right_div_box_2 h3 {
+  font-family: Montserrat, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
+    "Segoe UI Symbol", "Noto Color Emoji";
+  font-weight: 700;
+  font-size: 21px;
+}
+
+.about_left_div_box h3,
+.about_left_div_box_2 h3,
+.about_left_div_box_3 h3,
+.about_right_div_box h3,
+.about_right_div_box_2 h3 {
+  padding-top: 10px;
+}
+
+.about_left_div_box p,
+.about_left_div_box_2 p,
+.about_left_div_box_3 p,
+.about_right_div_box p,
+.about_right_div_box_2 p {
+  padding-top: 10px;
+  color: #6c757d;
+  font-family: "Roboto Slab", -apple-system, BlinkMacSystemFont, "Segoe UI",
+    Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji",
+    "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  line-height: 1.75;
+}
+
+.about_left_div a {
+  color: #7bc475;
+  display: inline-block;
+  text-decoration: none;
+  font-family: "Roboto Slab", -apple-system, BlinkMacSystemFont, "Segoe UI",
+    Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji",
+    "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  font-size: 20px;
+  margin-top: 20px;
+  font-weight: bold;
+  transition: 0.5s;
+}
+
+.about_left_div a:hover {
+  color: #fed136;
+}
+
+/*
+   * ─── CENTAR DIV ─────────────────────────────────────────────────────────────────
+   */
+
+.about_center_div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* outline: 1px solid black; */
+  width: 20%;
+  margin-top: 109px;
+}
+
+.about_center_div_circle_border {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 170px;
+  height: 170px;
+  border-radius: 50%;
+  background: #e9ecef;
+  box-shadow: 1px 1px 13px 1px #acb3bb;
+}
+
+.about_center_div_circle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 156px;
+  height: 156px;
+  border-radius: 50%;
+  background: #fed136;
+  /* border: 14px solid #e9ecef; */
+}
+
+.about_center_div_line {
+  border-right: 2px solid #e9ecef;
+  height: 190px;
+  width: 0;
+}
+
+.about_center_div_circle img {
+  width: 156px;
+  height: 156px;
+  border-radius: 50%;
+}
+
+.about_center_div_circle i {
+  font-size: 80px;
+}
+
+.about_center_div_circle p {
+  text-align: center;
+  font-size: 18px;
+  line-height: 26px;
+  font-weight: 700;
+  font-family: "Dosis", sans-serif;
+}
+
+.about_center_div_circle a {
+  display: block;
+  text-decoration: none;
+  color: #fffff8;
+  transition: 0.5s;
+}
+
+.about_center_div_circle a:hover {
+  color: #343d45;
+}
+
+/*
+   * ─── ANIMATIONS ─────────────────────────────────────────────────────────────────
+   */
+
+@-webkit-keyframes zoomIn {
+  from {
+    opacity: 0;
+    -webkit-transform: scale3d(0.3, 0.3, 0.3);
+    transform: scale3d(0.3, 0.3, 0.3);
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+@keyframes zoomIn {
+  from {
+    opacity: 0;
+    -webkit-transform: scale3d(0.3, 0.3, 0.3);
+    transform: scale3d(0.3, 0.3, 0.3);
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+.zoomIn {
+  -webkit-animation-name: zoomIn;
+  animation-name: zoomIn;
+  animation-duration: 0.5s;
+}
+
+/*
+   * ─── FADE IN ─────────────────────────────────────────────────────────────────────
+   */
+
+@-webkit-keyframes fadeInUpBig {
+  from {
+    opacity: 0;
+    -webkit-transform: translate3d(0, 2000px, 0);
+    transform: translate3d(0, 2000px, 0);
+  }
+  to {
+    opacity: 1;
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes fadeInUpBig {
+  from {
+    opacity: 0;
+    -webkit-transform: translate3d(0, 2000px, 0);
+    transform: translate3d(0, 2000px, 0);
+  }
+  to {
+    opacity: 1;
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+.fadeInUpBig {
+  -webkit-animation-name: fadeInUpBig;
+  animation-name: fadeInUpBig;
+  animation-duration: 0.5s;
+}
+
+@-webkit-keyframes fadeInLeftBig {
+  from {
+    opacity: 0;
+    -webkit-transform: translate3d(-2000px, 0, 0);
+    transform: translate3d(-2000px, 0, 0);
+  }
+  to {
+    opacity: 1;
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes fadeInLeftBig {
+  from {
+    opacity: 0;
+    -webkit-transform: translate3d(-2000px, 0, 0);
+    transform: translate3d(-2000px, 0, 0);
+  }
+  to {
+    opacity: 1;
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+.fadeInLeftBig {
+  -webkit-animation-name: fadeInLeftBig;
+  animation-name: fadeInLeftBig;
+  animation-duration: 0.5s;
+}
+
+@-webkit-keyframes fadeInRightBig {
+  from {
+    opacity: 0;
+    -webkit-transform: translate3d(2000px, 0, 0);
+    transform: translate3d(2000px, 0, 0);
+  }
+  to {
+    opacity: 1;
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes fadeInRightBig {
+  from {
+    opacity: 0;
+    -webkit-transform: translate3d(2000px, 0, 0);
+    transform: translate3d(2000px, 0, 0);
+  }
+  to {
+    opacity: 1;
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+.fadeInRightBig {
+  -webkit-animation-name: fadeInRightBig;
+  animation-name: fadeInRightBig;
+  animation-duration: 0.5s;
+}
+
+@-webkit-keyframes fadeInDownBig {
+  from {
+    opacity: 0;
+    -webkit-transform: translate3d(0, -2000px, 0);
+    transform: translate3d(0, -2000px, 0);
+  }
+  to {
+    opacity: 1;
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes fadeInDownBig {
+  from {
+    opacity: 0;
+    -webkit-transform: translate3d(0, -2000px, 0);
+    transform: translate3d(0, -2000px, 0);
+  }
+  to {
+    opacity: 1;
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+.fadeInDownBig {
+  -webkit-animation-name: fadeInDownBig;
+  animation-name: fadeInDownBig;
+  animation-duration: 0.5s;
+}
+
+.opacity {
+  opacity: 1 !important;
+}

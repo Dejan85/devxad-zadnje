@@ -1,0 +1,179 @@
+.dashboard {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  height: 100vh;
+  font-family: "Dosis", sans-serif;
+  background: #f8f9fa;
+  overflow: hidden;
+}
+
+.dashboard_nav {
+  background: #1b2329;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  width: 100%;
+}
+
+.dashboard_header {
+  display: flex;
+  align-items: center;
+  background: #1b2329;
+  color: white;
+  /* color: #fed136; */
+  padding-left: 15px;
+  height: 50px;
+  padding-right: 0;
+  font-weight: 600;
+  width: 280px;
+  user-select: none;
+}
+
+.dashboard_header i {
+  padding-right: 10px;
+}
+
+.dashboard_nav h1 {
+  width: 280px;
+  display: block;
+  /* color: white; */
+  color: #fed136;
+  font-weight: 800;
+  font-size: 25px;
+  text-align: center;
+}
+
+/*
+ * ─── NAV ────────────────────────────────────────────────────────────────────────
+ */
+
+.dashboard_left_side_nav {
+  /* width: 280px; */
+  width: 14.8%;
+  /* height: 94.43vh; */
+  height: 100vh;
+  background: #1e282e;
+}
+
+.dashboard_left_side_nav ul li {
+  display: flex;
+  color: white;
+  padding: 15px;
+  font-weight: 500;
+  cursor: pointer;
+  user-select: none;
+  justify-content: space-between;
+  transition: 0.5s;
+}
+
+.dashboard_left_side_nav li i {
+  padding-right: 5px;
+}
+
+.dashboard_left_side_nav li:hover {
+  color: #fed136;
+}
+
+/*
+ * ─── PROJECT NAV ────────────────────────────────────────────────────────────────
+ */
+
+.project_nav li {
+  padding-left: 43px !important;
+  padding-top: 8px !important;
+  padding-bottom: 8px !important;
+  font-size: 13px;
+}
+
+/*
+ * ─── DASHBOARD CONTENT ──────────────────────────────────────────────────────────
+ */
+
+.dashboard_content {
+  width: 85.2%;
+  /* overflow-y: scroll; */
+}
+
+.dashboard_content_nav {
+  display: flex;
+  align-items: center;
+  background: #ebeef5;
+  width: 100%;
+  padding-left: 15px;
+  font-weight: 600;
+  font-size: 20px;
+  height: 50px;
+  box-sizing: border-box;
+}
+
+.dashboard_content_project {
+  display: flex;
+  margin-top: 100px;
+  justify-content: space-around;
+}
+
+.dashboard_content_project_add,
+.dashboard_content_project_edit,
+.dashboard_content_project_delete {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  background: #00c0ef;
+  width: 350px;
+  height: 200px;
+  /* border-radius: 10px; */
+  cursor: pointer;
+}
+
+.dashboard_content_project_add:hover {
+  background: #09b4df;
+}
+
+.dashboard_content_project_edit:hover {
+  background: #e09111;
+}
+
+.dashboard_content_project_delete:hover {
+  background: #ce4735;
+}
+
+.dashboard_content_project_add h3,
+.dashboard_content_project_edit h3,
+.dashboard_content_project_delete h3 {
+  font-size: 30px;
+  font-family: Montserrat, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
+    "Segoe UI Symbol", "Noto Color Emoji";
+  color: white;
+  font-weight: 400;
+  padding-left: 20px;
+}
+
+.dashboard_content_project_add i,
+.dashboard_content_project_edit i,
+.dashboard_content_project_delete i {
+  color: #00a1cb;
+  font-size: 100px;
+  padding-top: 50px;
+  padding-right: 20px;
+}
+
+.dashboard_content_project_edit {
+  background: #f39c11;
+  width: 350px;
+  height: 200px;
+}
+
+.dashboard_content_project_edit i {
+  color: #cd850d;
+}
+
+.dashboard_content_project_delete {
+  background: #de4b39;
+  width: 350px;
+  height: 200px;
+}
+
+.dashboard_content_project_delete i {
+  color: #bb4030;
+}

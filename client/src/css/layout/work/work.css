@@ -1,0 +1,141 @@
+.work {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  align-content: flex-start;
+  background: #f8f9fa;
+  width: 100%;
+  height: 831px;
+  padding-bottom: 50px;
+}
+
+.work h1 {
+  width: 100%;
+  text-align: center;
+  padding-top: 150px;
+  font-size: 38px;
+  font-weight: 700;
+  /* font-family: Montserrat, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+      "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
+      "Segoe UI Symbol", "Noto Color Emoji"; */
+  font-family: "Dosis", sans-serif;
+  color: #212529;
+  /* outline: 1px solid red; */
+}
+
+/*
+   * ─── WORK BOX CONTAINER ─────────────────────────────────────────────────────────
+   */
+
+.work_box_container {
+  /* outline: 1px solid orange; */
+  display: flex;
+  justify-content: space-between;
+  width: 80.6%;
+  padding-top: 110px;
+}
+
+/*
+   * ─── LEFT BOX ───────────────────────────────────────────────────────────────────
+   */
+
+.work_box {
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+}
+
+.work_box span {
+  font-family: "Lato", sans-serif;
+  font-weight: 600;
+  color: #212529;
+  font-size: 13px;
+  font-weight: 400;
+}
+
+.work_box h2 {
+  font-family: "Dosis", sans-serif;
+  font-size: 50px;
+  padding-top: 20px;
+}
+
+.work_box p {
+  padding-top: 50px;
+  width: 450px;
+  line-height: 24px;
+  font-size: 14px;
+  font-family: "Lato", sans-serif;
+  color: #888888;
+  text-align: left;
+}
+
+.work_box button {
+  background: #fed136;
+  color: #ffffff;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  width: 200px;
+  font-size: 18px;
+  font-weight: 700;
+  border: none;
+  border-radius: 5%;
+  margin-top: 160px;
+  font-family: "Lato", sans-serif;
+  transition: 0.5s;
+}
+
+.work_box button:hover {
+  background: #e7bd26;
+  cursor: pointer;
+}
+
+/*
+   * ─── RIGHT BOX ──────────────────────────────────────────────────────────────────
+   */
+
+.work_img img {
+  max-width: 900px;
+  width: 100%;
+  border-radius: 15px;
+  box-shadow: 1px 1px 10px 2px #212529;
+}
+
+/*
+   * ─── ANIMATIONS ─────────────────────────────────────────────────────────────────
+   */
+
+@-webkit-keyframes fadeInRightBig {
+  from {
+    opacity: 0;
+    -webkit-transform: translate3d(2000px, 0, 0);
+    transform: translate3d(2000px, 0, 0);
+  }
+  to {
+    opacity: 1;
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes fadeInRightBig {
+  from {
+    opacity: 0;
+    -webkit-transform: translate3d(2000px, 0, 0);
+    transform: translate3d(2000px, 0, 0);
+  }
+  to {
+    opacity: 1;
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+.fadeInRightBig {
+  -webkit-animation-name: fadeInRightBig;
+  animation-name: fadeInRightBig;
+  animation-duration: 0.5s;
+}
+
+.opacity {
+  opacity: 1 !important;
+}
