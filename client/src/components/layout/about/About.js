@@ -5,6 +5,9 @@ import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 import { Element } from "react-scroll";
 
+// methods
+import { setDropDownMenu } from "../../../redux/actions/layout/layoutActions";
+
 class About extends Component {
   constructor(props) {
     super(props);
@@ -28,7 +31,7 @@ class About extends Component {
 
   render() {
     return (
-      <div className="about">
+      <div className="about" onClick={this.props.setDropDownMenu}>
         <h1>About</h1>
         <Element name="ElementAbout" />
         <div className="about_left_div">
@@ -195,7 +198,8 @@ class About extends Component {
 }
 
 About.propTypes = {
-  page: PropTypes.string
+  page: PropTypes.string,
+  setDropDownMenu: PropTypes.func
 };
 
 const mapStateToProps = state => ({
@@ -204,5 +208,5 @@ const mapStateToProps = state => ({
 
 export default connect(
   mapStateToProps,
-  null
+  { setDropDownMenu }
 )(About);

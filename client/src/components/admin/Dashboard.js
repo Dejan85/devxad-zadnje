@@ -38,38 +38,40 @@ class Dashboard extends Component {
   render() {
     return (
       <div className="dashboard">
-        {/* <div className="dashboard_nav">
+        <div className="dashboard_container fadeInRightBig">
+          {/* <div className="dashboard_nav">
           <h1>Admin</h1>
         </div> */}
-        <div className="dashboard_left_side_nav">
-          <div className="dashboard_header">
-            <i className="fas fa-tachometer-alt" />
-            Dashboard
+          <div className="dashboard_left_side_nav">
+            <div className="dashboard_header">
+              <i className="fas fa-tachometer-alt" />
+              Dashboard
+            </div>
+            <ul onClick={this.handleProjectMenu}>
+              <li>
+                <p>
+                  <i className="fas fa-project-diagram" /> Project
+                </p>
+                <span>
+                  {this.state.arow ? (
+                    <i className="fas fa-angle-left" />
+                  ) : (
+                    <i className="fas fa-angle-down" />
+                  )}
+                </span>
+              </li>
+            </ul>
+            {this.state.projectNav && <ProjectNav />}
           </div>
-          <ul onClick={this.handleProjectMenu}>
-            <li>
-              <p>
-                <i className="fas fa-project-diagram" /> Project
-              </p>
-              <span>
-                {this.state.arow ? (
-                  <i className="fas fa-angle-left" />
-                ) : (
-                  <i className="fas fa-angle-down" />
-                )}
-              </span>
-            </li>
-          </ul>
-          {this.state.projectNav && <ProjectNav />}
-        </div>
 
-        {/* right side div */}
-        <div className="dashboard_content">
-          <div className="dashboard_content_nav">
-            <p>Dashboard</p>
+          {/* right side div */}
+          <div className="dashboard_content">
+            <div className="dashboard_content_nav">
+              <p>Dashboard</p>
+            </div>
+            {/* <Project /> */}
+            {this.state.route[this.props.route] || <Index />}
           </div>
-          {/* <Project /> */}
-          {this.state.route[this.props.route] || <Index />}
         </div>
       </div>
     );

@@ -2,12 +2,15 @@ import React, { Component } from "react";
 import { Link, animateScroll as scroll } from "react-scroll";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
-import { animations } from "../../../redux/actions/layout/animationsActions";
+import { animations } from "../../../redux/actions/layout/layoutActions";
 import { userLogout } from "../../../redux/actions/auth/authActions";
 import { isLogged } from "../../validations";
 
 // component
 import DropDownMenu from "../nav/DropDownMenu";
+
+// methods
+import { setDropDownMenu } from "../../../redux/actions/layout/layoutActions";
 
 class Nav extends Component {
   constructor() {
@@ -27,6 +30,7 @@ class Nav extends Component {
 
   handleSetActive = to => {
     this.props.animations(to);
+    this.props.setDropDownMenu(); // this is for reset drop down menu from navigation
   };
 
   // drop menu
@@ -182,7 +186,8 @@ class Nav extends Component {
 Nav.propTypes = {
   animate: PropTypes.func,
   userLogout: PropTypes.func,
-  user: PropTypes.object
+  user: PropTypes.object,
+  setDropDownMenu: PropTypes.func
 };
 
 const mapStateToProps = state => ({
@@ -192,5 +197,5 @@ const mapStateToProps = state => ({
 
 export default connect(
   mapStateToProps,
-  { animations, userLogout }
+  { animations, userLogout, setDropDownMenu }
 )(Nav);

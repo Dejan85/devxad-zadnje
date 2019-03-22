@@ -34,7 +34,7 @@ nav ul {
 nav ul li {
   /* outline: 1px solid white; */
   list-style-type: none;
-  width: 70px;
+  /* width: 70px; */
   color: white;
   text-align: center;
   font-weight: 600;
@@ -48,6 +48,7 @@ nav ul li {
 nav ul li a {
   cursor: pointer;
   transition: 0.5s;
+  padding-right: 25px;
 }
 
 nav ul li a:hover {
@@ -91,10 +92,16 @@ nav ul li a:hover {
   display: flex;
   position: relative;
   align-items: center;
-  width: 120px;
-  /* padding-left: 100px; */
+
   cursor: pointer;
-  /* outline: 1px solid red; */
+}
+
+.user p {
+  padding-right: 50px;
+}
+
+.user p i {
+  padding-left: 5px;
 }
 
 .avatar {
@@ -106,14 +113,6 @@ nav ul li a:hover {
   background: #fed136;
 }
 
-.user p {
-  padding-left: 15px;
-}
-
-.user p i {
-  padding-left: 5px;
-}
-
 /*
  * ─── DROP DOWN MENU ─────────────────────────────────────────────────────────────
  */
@@ -122,9 +121,8 @@ nav ul li a:hover {
   position: absolute;
   display: flex;
   flex-direction: column;
-  margin-top: 140px;
-  margin-left: 18px;
-  width: 300px;
+  margin-top: 100px;
+  width: 200px;
 }
 
 .drop_down_menu ul {
@@ -141,9 +139,10 @@ nav ul li a:hover {
 .drop_down_menu ul li {
   display: flex;
   box-sizing: border-box;
+  align-items: baseline;
   color: black;
   cursor: pointer;
-  padding: 20px;
+  padding: 10px;
   width: 100%;
 }
 
@@ -154,12 +153,21 @@ nav ul li a:hover {
 .drop_down_menu ul li p {
   padding-left: 10px;
   font-family: "Dosis", sans-serif;
-  font-size: 18px;
+  font-size: 14px;
   color: #6c757d;
+  transition: 0.5s;
+}
+
+.drop_down_menu ul li a p:hover {
+  color: #fed136 !important;
+}
+
+.drop_down_menu ul li p:hover {
+  color: #fed136 !important;
 }
 
 .triangle {
-  margin-left: 34px;
+  margin-left: 37px;
   width: 0;
   height: 0;
   border-left: 10px solid transparent;

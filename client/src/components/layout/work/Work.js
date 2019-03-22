@@ -2,6 +2,10 @@ import React, { Component } from "react";
 import pigGame from "../../../images/pigGame.png";
 import { connect } from "react-redux";
 import { Element } from "react-scroll";
+import { PropTypes } from "prop-types";
+
+// methods
+import { setDropDownMenu } from "../../../redux/actions/layout/layoutActions";
 
 class Work extends Component {
   constructor(props) {
@@ -22,7 +26,7 @@ class Work extends Component {
 
   render() {
     return (
-      <div className="work">
+      <div className="work" onClick={this.props.setDropDownMenu}>
         <h1>LATEST WORK</h1>
         <Element name="ElementWork" />
         <div className="work_box_container">
@@ -48,11 +52,15 @@ class Work extends Component {
   }
 }
 
+Work.propTypes = {
+  setDropDownMenu: PropTypes.func
+};
+
 const mapStateToProps = state => ({
   page: state.animate.pagename
 });
 
 export default connect(
   mapStateToProps,
-  null
+  { setDropDownMenu }
 )(Work);

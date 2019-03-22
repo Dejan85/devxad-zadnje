@@ -15,7 +15,9 @@ const DropDownMenu = ({ logout }) => {
         </li>
         <li>
           <i className="fas fa-sliders-h" />
-          <p>Dashboard</p>
+          <Link to="/dashboard">
+            <p>Dashboard</p>
+          </Link>
         </li>
         <li onClick={logout}>
           <i className="fas fa-sign-out-alt" />
