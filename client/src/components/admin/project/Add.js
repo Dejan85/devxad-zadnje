@@ -25,7 +25,6 @@ class Add extends Component {
 
   handleChange = value => {
     this.setState({ text: value });
-    console.log(this.state.text);
   };
 
   render() {

@@ -7,6 +7,7 @@ import ProjectNav from "./project/ProjectNav";
 import Index from "./project/Index";
 import Project from "./project/Project";
 import Add from "../admin/project/Add";
+import ProfileNav from "../admin/profile/ProfileNav";
 
 // redux
 import { adminRoutesActions } from "../../redux/actions/admin/adminRouteActions";
@@ -17,7 +18,9 @@ class Dashboard extends Component {
 
     this.state = {
       projectNav: false,
-      arow: true,
+      userNav: false,
+      projectsArow: true,
+      userArow: true,
       route: {
         project: <Project />,
         add: <Add />,
@@ -30,9 +33,17 @@ class Dashboard extends Component {
   handleProjectMenu = () => {
     this.setState({
       projectNav: !this.state.projectNav,
-      arow: !this.state.arow
+      projectsArow: !this.state.projectsArow
     });
     this.props.adminRoutesActions("project");
+  };
+
+  handleUsersMenu = () => {
+    this.setState({
+      userNav: !this.state.userNav,
+      userArow: !this.state.userArow
+    });
+    this.props.adminRoutesActions("users");
   };
 
   render() {
@@ -47,13 +58,32 @@ class Dashboard extends Component {
               <i className="fas fa-tachometer-alt" />
               Dashboard
             </div>
+
+            {/* Profile */}
+            <ul onClick={this.handleUsersMenu}>
+              <li>
+                <p>
+                  <i className="fas fa-user" /> Profile
+                </p>
+                <span>
+                  {this.state.userArow ? (
+                    <i className="fas fa-angle-left" />
+                  ) : (
+                    <i className="fas fa-angle-down" />
+                  )}
+                </span>
+              </li>
+            </ul>
+            {this.state.userNav && <ProfileNav />}
+
+            {/* projects */}
             <ul onClick={this.handleProjectMenu}>
               <li>
                 <p>
                   <i className="fas fa-project-diagram" /> Project
                 </p>
                 <span>
-                  {this.state.arow ? (
+                  {this.state.projectsArow ? (
                     <i className="fas fa-angle-left" />
                   ) : (
                     <i className="fas fa-angle-down" />

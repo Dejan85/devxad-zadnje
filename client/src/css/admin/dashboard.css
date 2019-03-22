@@ -11,7 +11,7 @@
   height: 100vh;
   font-family: "Dosis", sans-serif;
   background: #f8f9fa;
-  /* overflow: hidden; */
+  overflow: hidden;
 }
 
 .dashboard_nav {
