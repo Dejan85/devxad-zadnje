@@ -1,4 +1,4 @@
-import { SIGNUP, SIGNIN, LOGOUT } from "../../type/auth/authTypes";
+import { SIGNUP, LOGOUT } from "../../type/auth/authTypes";
 import { decodeToken } from "../../../utils/decodeToken";
 import { setCurrentUser } from "../../../utils/setCurrentUser";
 
