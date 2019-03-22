@@ -32,7 +32,8 @@ import Contact from "./components/layout/contact/Contact";
 // ─── ADMIN COMPONENTS ───────────────────────────────────────────────────────────
 //
 
-import Dashboard from "./components/admin/Dashboard";
+// import Dashboard from "./components/admin/Dashboard";
+import Dashboard from "./components/layout/dashboard/Dashboard";
 
 //
 // ─── AUTH ───────────────────────────────────────────────────────────────────────

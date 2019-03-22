@@ -14,10 +14,19 @@
  * ─── ADMIN CSS ──────────────────────────────────────────────────────────────────
  */
 
-@import url("./css/admin/dashboard.css");
-@import url("./css/admin/project/add.css");
+/* @import url("./css/admin/dashboard.css");
+@import url("./css/admin/project/add.css"); */
 
-/* auth css */
+/*
+ * ─── DASHBOARD ──────────────────────────────────────────────────────────────────
+ */
+
+@import url("./css/layout/dashboard/dashboard.css");
+
+/*
+ * ─── AUTH ───────────────────────────────────────────────────────────────────────
+ */
+
 @import url("./css/auth/signup_signin.css");
 
 * {
