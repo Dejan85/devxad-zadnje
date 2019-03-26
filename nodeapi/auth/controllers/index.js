@@ -14,6 +14,7 @@ exports.userRegister = async (req, res) => {
   const user = await new User(req.body);
   await user.save();
   res.status(200).json({ message: "Signup success!" });
+  console.log(user);
 };
 
 // user login
@@ -35,7 +36,6 @@ exports.userLogin = (req, res) => {
       });
     }
     // generate a token with user id and secret
-
     const token = jwt.sign(
       // { _id: user._id, role: user.role },
       {
@@ -43,10 +43,12 @@ exports.userLogin = (req, res) => {
         name: user.name,
         lastname: user.lastname,
         email: user.email
+        // image: user.photo
         // role: user.role
       },
       process.env.JWT_SECRET
     );
+
     // persist the token as 't' in cookie with expiry date
     res.cookie("t", token, { expire: new Date() + 9999 });
     // retrun response with user and token to frontend client

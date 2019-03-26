@@ -1,15 +1,20 @@
 import React from "react";
+import { connect } from "react-redux";
+import PropTypes from "prop-types";
 
-const DashboardDropMenu = ({ li }) => {
-  const xad = e => {
-    console.log(e.target.textContent);
+// redux actions
+import { dashboardNavigation } from "../../../redux/actions/layout/layoutActions";
+
+const DashboardDropMenu = ({ li, dashboardNavigation }) => {
+  const handleNav = e => {
+    dashboardNavigation(e.target.textContent);
   };
 
   return (
     <ul>
       {li.map((item, index) => {
         return (
-          <li onClick={xad} key={index}>
+          <li onClick={handleNav} key={index}>
             {item}
           </li>
         );
@@ -18,4 +23,11 @@ const DashboardDropMenu = ({ li }) => {
   );
 };
 
-export default DashboardDropMenu;
+DashboardDropMenu.propTypes = {
+  dashboardNavigation: PropTypes.func
+};
+
+export default connect(
+  null,
+  { dashboardNavigation }
+)(DashboardDropMenu);

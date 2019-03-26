@@ -1,14 +1,15 @@
-import { RESET_DROP_DOWN } from "../../type/layout/layoutType";
+import { ANIMATE } from "../../../type/animationsType";
 
 const initialState = {};
 
 export default function(state = initialState, action) {
   switch (action.type) {
-    case RESET_DROP_DOWN:
+    case ANIMATE:
       return {
         ...state,
-        dropDown: action.payload
+        pagename: action.payload
       };
+
     default:
       return state;
   }

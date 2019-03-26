@@ -1,8 +1,8 @@
 import { combineReducers } from "redux";
 // layout reducers
-import animationsReducers from "./layout/animationsReducers";
-import resetDropMenuReducers from "./layout/resetDropMenuReducers";
-import dashboardReducers from "./layout/dashboardReducers";
+import animationsReducers from "./layout/animation/animationsReducers";
+import resetDropMenuReducers from "./layout/nav/resetDropMenuReducers";
+import dashboardReducers from "./layout/dashboard/dashboardReducers";
 
 // admin reducers
 import adminRouteReducers from "./admin/adminRouteReducers";
@@ -14,7 +14,7 @@ export default combineReducers({
   // layout reducers
   animate: animationsReducers,
   dropMenu: resetDropMenuReducers,
-  dashboardDropMenu: dashboardReducers,
+  dashboardNavigation: dashboardReducers,
   // admin reducers
   route: adminRouteReducers,
   // auth reducers

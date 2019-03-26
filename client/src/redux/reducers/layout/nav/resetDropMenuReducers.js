@@ -1,15 +1,14 @@
-import { DASHBOARD_RESET_DROP_MENU } from "../../type/layout/layoutType";
+import { RESET_DROP_DOWN } from "../../../type/layout/layoutType";
 
 const initialState = {};
 
 export default function(state = initialState, action) {
   switch (action.type) {
-    case DASHBOARD_RESET_DROP_MENU:
+    case RESET_DROP_DOWN:
       return {
         ...state,
-        [action.payload]: !state[action.payload]
+        dropDown: action.payload
       };
-
     default:
       return state;
   }

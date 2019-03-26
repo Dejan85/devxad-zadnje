@@ -1,14 +1,59 @@
-import React from "react";
+import React, { Component } from "react";
+import { connect } from "react-redux";
+import PropTypes from "prop-types";
 
-const DashboardNav = props => {
-  const { nav, menu, active } = props;
-  return (
-    <div className="dashboard_nav">
-      {nav}
-      {active.profile && menu.profile}
-      {active.projects && menu.projects}
-    </div>
-  );
+// components
+import DashboardDropMenu from "./DashboardDropMenu";
+
+// redux action
+import { dashboardNavigation } from "../../../redux/actions/layout/layoutActions";
+
+class DashboardNav extends Component {
+  constructor() {
+    super();
+
+    this.state = {
+      dropMenu: false,
+      arow: false
+    };
+  }
+
+  showDropMenu = e => {
+    this.props.dashboardNavigation(e.target.textContent);
+    this.setState({
+      dropMenu: !this.state.dropMenu,
+      arow: !this.state.arow
+    });
+  };
+
+  render() {
+    return (
+      <div className="dashboard_nav">
+        <nav onClick={this.showDropMenu}>
+          {this.props.nav}
+          {!this.state.arow ? (
+            <i className="fas fa-angle-left arow" />
+          ) : (
+            <i className="fas fa-angle-down arow" />
+          )}
+        </nav>
+
+        {this.props.li.map(
+          (item, index) =>
+            this.state.dropMenu && (
+              <DashboardDropMenu key={index} li={item} index={index} />
+            )
+        )}
+      </div>
+    );
+  }
+}
+
+DashboardNav.propTypes = {
+  dashboardNavigation: PropTypes.func
 };
 
-export default DashboardNav;
+export default connect(
+  null,
+  { dashboardNavigation }
+)(DashboardNav);

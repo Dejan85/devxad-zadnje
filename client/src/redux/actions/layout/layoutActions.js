@@ -1,7 +1,7 @@
 import { ANIMATE } from "../../type/animationsType";
 import {
   RESET_DROP_DOWN,
-  DASHBOARD_RESET_DROP_MENU
+  DASHBOARD_NAVIGATE
 } from "../../type/layout/layoutType";
 
 // animation
@@ -21,9 +21,17 @@ export const setDropDownMenu = () => dispatch => {
 };
 
 // dashboard menu
-export const dashboardDropMenu = name => dispatch => {
+export const dashboardNavigation = name => dispatch => {
+  // remove white space between words and kill caps lock
+  const noCapsName = () => {
+    function callBack(name) {
+      return name.replace(/ +/g, "");
+    }
+    return callBack(name.toLowerCase());
+  };
+
   dispatch({
-    type: DASHBOARD_RESET_DROP_MENU,
-    payload: name
+    type: DASHBOARD_NAVIGATE,
+    payload: noCapsName()
   });
 };

@@ -1,0 +1,143 @@
+.edit_profile {
+  display: flex;
+  background: white;
+  overflow-x: hidden;
+  width: 100%;
+  height: 100vh;
+}
+
+.edit_profile_container {
+  display: flex;
+  font-family: "Dosis", sans-serif;
+  background: #f8f9fa;
+  overflow: hidden;
+  width: 100%;
+  padding-left: 30px;
+  padding-right: 30px;
+  justify-content: space-between;
+}
+
+/*
+ * ─── EDIT PROFILE GENERAL INFO ──────────────────────────────────────────────────
+ */
+
+.edit_profile_general_info {
+  max-width: 1040px;
+  width: 100%;
+  padding-top: 60px;
+}
+
+.edit_profile_general_info h2 {
+  background: #f39c11;
+  color: white;
+  padding: 10px;
+}
+
+.edit_profile_general_info_border {
+  padding-top: 40px;
+  border: 1px solid #dbdbdb;
+  background: #ffffff;
+}
+
+.edit_profile_input_holder {
+  display: flex;
+}
+
+.edit_profile_input_holder {
+  display: flex;
+  width: 100%;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.edit_profile_input_holder label {
+  display: inline-block;
+  color: #dbdbdb;
+  width: 200px;
+  padding-left: 10px;
+}
+
+.edit_profile_input_holder input {
+  color: #dbdbdb;
+  width: 100%;
+  padding: 10px;
+  border-radius: 10px;
+  border: 1px solid #dbdbdb;
+}
+
+.edit_profile_input_holder input:focus {
+  outline: none;
+}
+
+.edit_profile_button_holder {
+  display: flex;
+  width: 100%;
+  padding: 20px;
+  box-sizing: border-box;
+  justify-content: flex-end;
+}
+
+.edit_profile_button_holder button {
+  background: #f39c11;
+  border: none;
+  border-radius: 5px;
+  padding: 10px;
+  width: 100px;
+  color: white;
+  font-size: 14px;
+  transition: 0.5s;
+}
+
+.edit_profile_button_holder button:hover {
+  background: #e29110;
+}
+
+/*
+ * ─── EDIT PROFILE PHOTO ─────────────────────────────────────────────────────────
+ */
+
+.edit_proflie_photo {
+  /* outline: 1px solid green; */
+  max-width: 500px;
+  width: 100%;
+  padding-top: 60px;
+}
+
+.edit_proflie_photo h2 {
+  background: #f39c11;
+  color: white;
+  padding: 10px;
+}
+
+.edit_profile_photo_border {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid #dbdbdb;
+  background: #ffffff;
+  height: 426px;
+}
+
+.edit_profile_photo_input_holder {
+  display: flex;
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  background: #e29110;
+  justify-content: center;
+  align-items: center;
+}
+
+.edit_profile_photo_input_holder input {
+  width: 300px;
+  height: 300px;
+  opacity: 0;
+  position: absolute;
+  cursor: pointer;
+}
+
+.edit_profile_photo_input_holder i {
+  font-size: 70px;
+  color: #cd850d;
+  cursor: pointer;
+}

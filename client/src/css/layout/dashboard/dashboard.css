@@ -56,10 +56,6 @@
  * ─── DASHBOARD NAV ──────────────────────────────────────────────────────────────
  */
 
-.dashboard_nav {
-  /* background: red; */
-}
-
 .dashboard_nav nav {
   position: relative;
   color: white;
