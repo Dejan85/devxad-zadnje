@@ -1,0 +1,196 @@
+.delete_profile_general_info {
+  max-width: 1040px;
+  width: 100%;
+  padding-top: 60px;
+}
+
+.delete_profile_button_holder {
+  display: flex;
+  width: 100%;
+  padding: 20px;
+  box-sizing: border-box;
+  justify-content: flex-end;
+}
+
+.delete_profile_button_holder button {
+  background: #ce4735;
+  border: none;
+  border-radius: 5px;
+  padding: 10px;
+  width: 100px;
+  color: white;
+  font-size: 14px;
+  transition: 0.5s;
+  cursor: pointer;
+}
+
+.delete_profile_input_holder {
+  display: flex;
+}
+
+.delete_profile_input_holder {
+  display: flex;
+  width: 100%;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.delete_profile_input_holder label {
+  display: inline-block;
+  color: #dbdbdb;
+  width: 200px;
+  padding-left: 10px;
+}
+
+.delete_profile_input_holder input {
+  color: #dbdbdb;
+  width: 100%;
+  padding: 10px;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  border-bottom: 1px solid #dbdbdb;
+}
+
+.delete_profile_input_holder input:focus {
+  outline: none;
+}
+
+.delete_profile_button_holder button:hover {
+  background: #240602;
+}
+
+.delete_profile_general_info h2,
+.delete_proflie_photo h2 {
+  background: #ce4735;
+  padding: 10px;
+  color: white;
+}
+
+/*
+ * ─── DELETE PHOTO ───────────────────────────────────────────────────────────────
+ */
+
+.delete_proflie_photo {
+  max-width: 500px;
+  width: 100%;
+  padding-top: 60px;
+}
+
+.delete_profile_photo_input_holder {
+  display: flex;
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  background: #ce4735;
+  justify-content: center;
+  align-items: center;
+}
+
+.delete_profile_photo_input_holder img {
+  width: 280px;
+  width: 280px;
+  border-radius: 50%;
+}
+
+.delete_profile_photo_input_holder i {
+  font-size: 70px;
+  color: #bb4030;
+  cursor: pointer;
+}
+
+/*
+ * ─── CONFIRM ────────────────────────────────────────────────────────────────────
+ */
+
+.confirm {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  width: 700px;
+  height: 250px;
+  background: #dbdbdb;
+  top: 0;
+  left: 20%;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  border: 2px solid #dbdbdb;
+  background: white;
+  z-index: 20;
+}
+
+.confirm_input_holder {
+  display: flex;
+  align-items: baseline;
+  padding: 10px;
+}
+
+.confirm p {
+  display: block;
+  max-width: 350px;
+  width: 100%;
+  flex: 1;
+  font-size: 18px;
+  font-family: "Dosis", sans-serif;
+  font-weight: 500;
+}
+
+.input_type_text {
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  border-bottom: 1px solid #dbdbdb;
+}
+
+.input_type_text:focus {
+  outline: none;
+}
+
+.confirm_input_holder_button {
+  display: flex;
+  padding-top: 60px;
+  justify-content: center;
+}
+
+.confirm_input_holder_button button {
+  border: none;
+  border-radius: 5px;
+  padding: 7px;
+  color: white;
+  cursor: pointer;
+  transition: 0.5s;
+}
+
+/* .confirm_input_holder_button button:first-child {
+  background: red;
+  color: white;
+  font-size: 12px;
+  padding: 4px !important;
+}
+
+.confirm_input_holder_button button:first-child:hover {
+  background: rgb(182, 3, 3);
+} */
+
+.confirm_input_holder_button input {
+  background: red;
+  color: white;
+  font-size: 12px;
+  padding: 4px !important;
+  border: none;
+  border-radius: 5px;
+  font-weight: 500;
+}
+
+.confirm_input_holder_button input:hover {
+  background: rgb(182, 3, 3);
+}
+
+.confirm_input_holder_button button:last-child {
+  background: green;
+  margin-left: 20px;
+}
+.confirm_input_holder_button button:last-child:hover {
+  background: rgb(2, 99, 2);
+}

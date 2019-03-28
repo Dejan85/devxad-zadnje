@@ -105,6 +105,9 @@ nav ul li a:hover {
 }
 
 .avatar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   position: absolute;
   right: 0;
   width: 36px;
@@ -113,6 +116,11 @@ nav ul li a:hover {
   background: #fed136;
 }
 
+.avatar img {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+}
 /*
  * ─── DROP DOWN MENU ─────────────────────────────────────────────────────────────
  */

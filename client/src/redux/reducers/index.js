@@ -8,6 +8,8 @@ import dashboardReducers from "./layout/dashboard/dashboardReducers";
 import adminRouteReducers from "./admin/adminRouteReducers";
 // auth reducers
 import authReducers from "./auth/authReducers";
+// user reducers
+import userReducers from "./user/userReducers";
 
 // combine all reducers
 export default combineReducers({
@@ -18,5 +20,7 @@ export default combineReducers({
   // admin reducers
   route: adminRouteReducers,
   // auth reducers
-  auth: authReducers
+  auth: authReducers,
+  // user reducers
+  user: userReducers
 });

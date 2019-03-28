@@ -20,7 +20,8 @@ class Nav extends Component {
       dropMenu: false,
       arowUp: "fas fa-angle-up",
       arowDwon: " fas fa-angle-down",
-      user: {}
+      user: {},
+      photo: undefined
     };
   }
 
@@ -53,6 +54,12 @@ class Nav extends Component {
         user: this.props.user
       });
     }
+
+    this.setState({
+      photo: `http://localhost:5000/user/photo/${this.props.user.id}`
+    });
+
+    console.log("radi");
   }
 
   //  reset drop down menu
@@ -169,7 +176,9 @@ class Nav extends Component {
                   {this.state.dropMenu && (
                     <DropDownMenu logout={this.props.userLogout} />
                   )}
-                  <div className="avatar" />
+                  <div className="avatar">
+                    <img src={this.state.photo} alt="" />
+                  </div>
                 </li>
               )}
             </ul>

@@ -14,7 +14,7 @@ class Edit extends Component {
       lastname: "",
       email: "",
       password: "",
-      image: "",
+      photo: "",
       fileSize: ""
     };
   }
@@ -48,7 +48,9 @@ class Edit extends Component {
   }
 
   render() {
-    console.log(this.props.user);
+    const id = this.props.user.id;
+    const photoUrl = `http://localhost:5000/user/photo/${id}`;
+
     return (
       <form onSubmit={this.onSubmit}>
         <div className="edit_profile">
@@ -104,13 +106,13 @@ class Edit extends Component {
                 <div className="edit_profile_photo_input_holder">
                   <input
                     type="file"
-                    name="image"
+                    name="photo"
                     accept="image/*"
                     value={this.state.image}
                     onChange={this.onChange}
                   />
                   <i className="fas fa-images" />
-                  {/* <img src={this.state.image} alt={""} /> */}
+                  <img src={photoUrl} alt={""} />
                 </div>
               </div>
             </div>

@@ -6,6 +6,9 @@ import PropTypes from "prop-types";
 import DashboardNav from "./DashboardNav";
 import DashboardContent from "./DashboardContent";
 
+// validation
+import { isLogged } from "../../validations/index";
+
 class Dashboard extends Component {
   render() {
     return (
@@ -16,6 +19,12 @@ class Dashboard extends Component {
               <i className="fas fa-tachometer-alt" />
               Dashboard
             </div>
+            {/* {isLogged() && (
+              <DashboardNav
+                li={[["Edit Profile", "Delete Profile"]]}
+                nav={"Profile"}
+              />
+            )} */}
             <DashboardNav
               li={[["Edit Profile", "Delete Profile"]]}
               nav={"Profile"}

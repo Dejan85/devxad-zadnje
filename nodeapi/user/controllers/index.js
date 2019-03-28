@@ -24,7 +24,6 @@ exports.userById = (req, res, next, id) => {
 //
 
 exports.getUser = (req, res) => {
-  console.log(req.profile);
   req.profile.hashed_password = undefined;
   req.profile.salt = undefined;
   return res.json(req.profile);
@@ -69,5 +68,33 @@ exports.updateUser = (req, res, next) => {
       // console.log("user after update with formdata: ", user);
       res.json(user);
     });
+  });
+};
+
+//
+// ─── USER PHOTO ─────────────────────────────────────────────────────────────────
+//
+
+exports.userPhoto = (req, res, next) => {
+  if (req.profile.photo.data) {
+    res.set(("Content-Type", req.profile.photo.contentType));
+    return res.send(req.profile.photo.data);
+  }
+  next();
+};
+
+//
+// ─── DELETE USER ────────────────────────────────────────────────────────────────
+//
+
+exports.deleteUser = (req, res, next) => {
+  let user = req.profile;
+  user.remove((err, user) => {
+    if (err) {
+      return res.status(400).json({
+        error: err
+      });
+    }
+    res.json({ message: "User deleted successfully" });
   });
 };
