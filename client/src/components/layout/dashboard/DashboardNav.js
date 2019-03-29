@@ -18,8 +18,8 @@ class DashboardNav extends Component {
     };
   }
 
-  showDropMenu = e => {
-    this.props.dashboardNavigation(e.target.textContent);
+  showDropMenu = () => {
+    this.props.dashboardNavigation(this.props.nav);
     this.setState({
       dropMenu: !this.state.dropMenu,
       arow: !this.state.arow

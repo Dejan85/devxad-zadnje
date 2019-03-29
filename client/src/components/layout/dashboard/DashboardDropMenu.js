@@ -14,7 +14,11 @@ const DashboardDropMenu = ({ li, dashboardNavigation }) => {
     <ul>
       {li.map((item, index) => {
         return (
-          <li onClick={handleNav} key={index}>
+          <li
+            onClick={handleNav}
+            key={index}
+            onClick={dashboardNavigation.bind(this, item)}
+          >
             {item}
           </li>
         );
