@@ -15,7 +15,7 @@ const DropDownMenu = ({ logout, dashboardNavigation }) => {
           <i className="fas fa-user-cog" />
           <Link
             to="/dashboard"
-            onClick={dashboardNavigation.bind(this, "profile")}
+            onClick={dashboardNavigation.bind(this, "account")}
           >
             <p>Account</p>
           </Link>

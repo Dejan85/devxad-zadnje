@@ -13,7 +13,7 @@ class Account extends Component {
           <div className="menu_container">
             <div
               className="edit_account_btn"
-              onClick={dashboardNavigation.bind(this, "editaccount")}
+              onClick={this.props.dashboardNavigation.bind(this, "editaccount")}
             >
               <div className="edit_account_btn_container">
                 <p>Edit Account</p> <i className="fas fa-plus" />
@@ -21,7 +21,10 @@ class Account extends Component {
             </div>
             <div
               className="delete_account_btn"
-              onClick={dashboardNavigation.bind(this, "deleteaccount")}
+              onClick={this.props.dashboardNavigation.bind(
+                this,
+                "deleteaccount"
+              )}
             >
               <div className="delete_account_btn_container">
                 <p>Delete Account</p> <i className="fas fa-trash-alt" />
