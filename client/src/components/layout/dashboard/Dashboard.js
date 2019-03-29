@@ -14,7 +14,7 @@ class Dashboard extends Component {
     return (
       <div className="dashboard">
         <div className="dashboard_container fadeInRightBig">
-          <div className="dashboard_nav_bar">
+          <div className="dashboard_nav_bar ">
             <div className="dashboard_nav_bar_header">
               <i className="fas fa-tachometer-alt" />
               Dashboard

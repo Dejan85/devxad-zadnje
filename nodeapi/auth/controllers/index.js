@@ -5,7 +5,10 @@ const formidable = require("formidable");
 const _ = require("lodash");
 require("dotenv").config();
 
-// user registration
+//
+// ─── USER REGISTRATION ──────────────────────────────────────────────────────────
+//
+
 exports.userRegister = async (req, res) => {
   const userExists = await User.findOne({ email: req.body.email });
   if (userExists) {
@@ -17,7 +20,10 @@ exports.userRegister = async (req, res) => {
   console.log(user);
 };
 
-// user login
+//
+// ─── USER LOGIN ─────────────────────────────────────────────────────────────────
+//
+
 exports.userLogin = (req, res) => {
   // find the user based on email
   const { email, password } = req.body;
@@ -42,8 +48,8 @@ exports.userLogin = (req, res) => {
         id: user._id,
         name: user.name,
         lastname: user.lastname,
-        email: user.email
-        // image: user.photo
+        email: user.email,
+        image: `/user/photo/${user._id}`
         // role: user.role
       },
       process.env.JWT_SECRET
@@ -61,7 +67,10 @@ exports.userLogin = (req, res) => {
   });
 };
 
-// user logout
+//
+// ─── USER LOGOUT ────────────────────────────────────────────────────────────────
+//
+
 exports.userLogout = (req, res) => {
   res.clearCookie("t");
   return res.json({ message: "Signout success!" });

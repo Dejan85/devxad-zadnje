@@ -100,3 +100,7 @@
 .dashboard_nav ul li:hover {
   color: #fed136;
 }
+
+.dashboard_transition {
+  transition-duration: 2s;
+}

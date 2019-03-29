@@ -47,6 +47,7 @@ export const userLogin = user => dispatch => {
       res.json().then(data => {
         data.token && localStorage.setItem("jwt", JSON.stringify(data.token));
         const user = decodeToken();
+
         const msg = {
           error: data.error,
           message: data.message,

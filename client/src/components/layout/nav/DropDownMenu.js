@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 const DropDownMenu = ({ logout }) => {
   return (
-    <div className="drop_down_menu">
+    <div className="drop_down_menu flipInY">
       <div className="triangle" />
       <ul>
         <li>

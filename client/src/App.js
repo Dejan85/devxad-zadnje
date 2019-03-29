@@ -32,7 +32,6 @@ import Contact from "./components/layout/contact/Contact";
 // ─── ADMIN COMPONENTS ───────────────────────────────────────────────────────────
 //
 
-// import Dashboard from "./components/admin/Dashboard";
 import Dashboard from "./components/layout/dashboard/Dashboard";
 
 //
@@ -72,7 +71,7 @@ class App extends Component {
             <Route exact path="/" component={About} />
             <Route exact path="/" component={Contact} />
 
-            {/* admin routes */}
+            {/* dashboard routes */}
             <Route exact path="/dashboard" component={Dashboard} />
 
             {/* auth routes */}
