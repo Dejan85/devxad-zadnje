@@ -2,9 +2,9 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 
 // component
-import Profile from "./profile/Profile";
-import EditProfile from "./profile/EditProfile";
-import DeleteProfile from "./profile/DeleteProfile";
+import Account from "./account/Account";
+import EditAccount from "./account/EditAccount";
+import DeleteAccount from "./account/DeleteAccount";
 import Project from "./project/Project";
 
 class DashboardContent extends Component {
@@ -14,10 +14,10 @@ class DashboardContent extends Component {
         <div className="dashboard_content_header">
           <p>Dashboard</p>
         </div>
-        {/* profile */}
-        {this.props.page && this.props.page.profile && <Profile />}
-        {this.props.page && this.props.page.editprofile && <EditProfile />}
-        {this.props.page && this.props.page.deleteprofile && <DeleteProfile />}
+        {/* account */}
+        {this.props.page && this.props.page.account && <Account />}
+        {this.props.page && this.props.page.editaccount && <EditAccount />}
+        {this.props.page && this.props.page.deleteaccount && <DeleteAccount />}
 
         {/* project */}
         {this.props.page && this.props.page.project && <Project />}

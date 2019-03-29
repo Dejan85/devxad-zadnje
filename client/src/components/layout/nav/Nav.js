@@ -9,8 +9,11 @@ import { isLogged } from "../../validations";
 // component
 import DropDownMenu from "../nav/DropDownMenu";
 
-// methods
-import { setDropDownMenu } from "../../../redux/actions/layout/layoutActions";
+// redux methods
+import {
+  setDropDownMenu,
+  dashboardNavigation
+} from "../../../redux/actions/layout/layoutActions";
 
 class Nav extends Component {
   constructor() {
@@ -54,6 +57,9 @@ class Nav extends Component {
         user: this.props.user
       });
     }
+
+    // ovim resetujemo redux koji sluzi za navigaciju dashboard spa
+    this.props.dashboardNavigation("");
   }
 
   //  reset drop down menu
@@ -168,7 +174,10 @@ class Nav extends Component {
                     />
                   </p>
                   {this.state.dropMenu && (
-                    <DropDownMenu logout={this.props.userLogout} />
+                    <DropDownMenu
+                      logout={this.props.userLogout}
+                      dashboardNavigation={this.props.dashboardNavigation}
+                    />
                   )}
                   <div className="avatar">
                     <img src={this.state.user.image} alt="" />
@@ -190,7 +199,8 @@ Nav.propTypes = {
   animate: PropTypes.func,
   userLogout: PropTypes.func,
   user: PropTypes.object,
-  setDropDownMenu: PropTypes.func
+  setDropDownMenu: PropTypes.func,
+  dashboardNavigation: PropTypes.func
 };
 
 const mapStateToProps = state => ({
@@ -200,5 +210,5 @@ const mapStateToProps = state => ({
 
 export default connect(
   mapStateToProps,
-  { animations, userLogout, setDropDownMenu }
+  { animations, userLogout, setDropDownMenu, dashboardNavigation }
 )(Nav);

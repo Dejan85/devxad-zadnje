@@ -7,7 +7,7 @@ import DashboardNav from "./DashboardNav";
 import DashboardContent from "./DashboardContent";
 
 // validation
-import { isLogged } from "../../validations/index";
+// import { isLogged } from "../../validations/index";
 
 class Dashboard extends Component {
   render() {
@@ -19,15 +19,9 @@ class Dashboard extends Component {
               <i className="fas fa-tachometer-alt" />
               Dashboard
             </div>
-            {/* {isLogged() && (
-              <DashboardNav
-                li={[["Edit Profile", "Delete Profile"]]}
-                nav={"Profile"}
-              />
-            )} */}
             <DashboardNav
-              li={[["Edit Profile", "Delete Profile"]]}
-              nav={"Profile"}
+              li={[["Edit Account", "Delete Account"]]}
+              nav={"Account"}
             />
             <DashboardNav
               li={[["Add Project", "Edit Project", "Delete Project"]]}

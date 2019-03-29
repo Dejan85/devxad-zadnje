@@ -5,7 +5,7 @@ import PropTypes from "prop-types";
 // redux method
 import { updateUser } from "../../../../redux/actions/user/userActions";
 
-class Edit extends Component {
+class EditAccount extends Component {
   constructor() {
     super();
 
@@ -53,12 +53,12 @@ class Edit extends Component {
 
     return (
       <form onSubmit={this.onSubmit}>
-        <div className="edit_profile">
-          <div className="edit_profile_container fadeInRightBig">
-            <div className="edit_profile_general_info">
+        <div className="edit_account">
+          <div className="edit_account_container fadeInRightBig">
+            <div className="edit_account_general_info">
               <h2>General Info</h2>
-              <div className="edit_profile_general_info_border">
-                <div className="edit_profile_input_holder">
+              <div className="edit_account_general_info_border">
+                <div className="edit_account_input_holder">
                   <label>Name</label>
                   <input
                     type="text"
@@ -67,7 +67,7 @@ class Edit extends Component {
                     onChange={this.onChange}
                   />
                 </div>
-                <div className="edit_profile_input_holder">
+                <div className="edit_account_input_holder">
                   <label>Last Name</label>
                   <input
                     type="text"
@@ -76,7 +76,7 @@ class Edit extends Component {
                     onChange={this.onChange}
                   />
                 </div>
-                <div className="edit_profile_input_holder">
+                <div className="edit_account_input_holder">
                   <label>Email</label>
                   <input
                     type="email"
@@ -85,7 +85,7 @@ class Edit extends Component {
                     onChange={this.onChange}
                   />
                 </div>
-                <div className="edit_profile_input_holder">
+                <div className="edit_account_input_holder">
                   <label>Password</label>
                   <input
                     type="password"
@@ -94,16 +94,16 @@ class Edit extends Component {
                     onChange={this.onChange}
                   />
                 </div>
-                <div className="edit_profile_button_holder">
+                <div className="edit_account_button_holder">
                   <button type="submit">Submit</button>
                 </div>
               </div>
             </div>
 
-            <div className="edit_proflie_photo">
-              <h2>Profile Photo</h2>
-              <div className="edit_profile_photo_border">
-                <div className="edit_profile_photo_input_holder">
+            <div className="edit_account_photo">
+              <h2>Account Photo</h2>
+              <div className="edit_account_photo_border">
+                <div className="edit_account_photo_input_holder">
                   <input
                     type="file"
                     name="photo"
@@ -123,7 +123,7 @@ class Edit extends Component {
   }
 }
 
-Edit.propTypes = {
+EditAccount.propTypes = {
   user: PropTypes.object,
   updateUser: PropTypes.func
 };
@@ -135,4 +135,4 @@ const mapStateToProps = state => ({
 export default connect(
   mapStateToProps,
   { updateUser }
-)(Edit);
+)(EditAccount);

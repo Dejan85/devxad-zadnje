@@ -40,9 +40,7 @@ class DashboardNav extends Component {
 
         {this.props.li.map(
           (item, index) =>
-            this.state.dropMenu && (
-              <DashboardDropMenu key={index} li={item} index={index} />
-            )
+            this.state.dropMenu && <DashboardDropMenu key={index} li={item} />
         )}
       </div>
     );

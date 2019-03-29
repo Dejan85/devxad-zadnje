@@ -129,8 +129,8 @@ nav ul li a:hover {
   position: absolute;
   display: flex;
   flex-direction: column;
-  margin-top: 100px;
-  width: 200px;
+  margin-top: 120px;
+  width: 210px;
 }
 
 .drop_down_menu ul {

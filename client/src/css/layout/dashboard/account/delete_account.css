@@ -1,10 +1,10 @@
-.delete_profile_general_info {
+.delete_account_general_info {
   max-width: 1040px;
   width: 100%;
   padding-top: 60px;
 }
 
-.delete_profile_button_holder {
+.delete_account_button_holder {
   display: flex;
   width: 100%;
   padding: 20px;
@@ -12,7 +12,7 @@
   justify-content: flex-end;
 }
 
-.delete_profile_button_holder button {
+.delete_account_button_holder button {
   background: #ce4735;
   border: none;
   border-radius: 5px;
@@ -24,25 +24,25 @@
   cursor: pointer;
 }
 
-.delete_profile_input_holder {
+.delete_account_input_holder {
   display: flex;
 }
 
-.delete_profile_input_holder {
+.delete_account_input_holder {
   display: flex;
   width: 100%;
   padding: 20px;
   box-sizing: border-box;
 }
 
-.delete_profile_input_holder label {
+.delete_account_input_holder label {
   display: inline-block;
   color: #dbdbdb;
   width: 200px;
   padding-left: 10px;
 }
 
-.delete_profile_input_holder input {
+.delete_account_input_holder input {
   color: #dbdbdb;
   width: 100%;
   padding: 10px;
@@ -52,16 +52,16 @@
   border-bottom: 1px solid #dbdbdb;
 }
 
-.delete_profile_input_holder input:focus {
+.delete_account_input_holder input:focus {
   outline: none;
 }
 
-.delete_profile_button_holder button:hover {
+.delete_account_button_holder button:hover {
   background: #240602;
 }
 
-.delete_profile_general_info h2,
-.delete_proflie_photo h2 {
+.delete_account_general_info h2,
+.delete_account_photo h2 {
   background: #ce4735;
   padding: 10px;
   color: white;
@@ -71,13 +71,13 @@
  * ─── DELETE PHOTO ───────────────────────────────────────────────────────────────
  */
 
-.delete_proflie_photo {
+.delete_account_photo {
   max-width: 500px;
   width: 100%;
   padding-top: 60px;
 }
 
-.delete_profile_photo_input_holder {
+.delete_account_photo_input_holder {
   display: flex;
   width: 300px;
   height: 300px;
@@ -87,13 +87,13 @@
   align-items: center;
 }
 
-.delete_profile_photo_input_holder img {
+.delete_account_photo_input_holder img {
   width: 280px;
   width: 280px;
   border-radius: 50%;
 }
 
-.delete_profile_photo_input_holder i {
+.delete_account_photo_input_holder i {
   font-size: 70px;
   color: #bb4030;
   cursor: pointer;

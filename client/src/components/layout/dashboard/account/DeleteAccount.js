@@ -8,7 +8,7 @@ import Confirm from "./Confirm";
 // redux method
 import { deleteUser } from "../../../../redux/actions/user/userActions";
 
-class Delete extends Component {
+class DeleteAccount extends Component {
   constructor() {
     super();
 
@@ -71,16 +71,16 @@ class Delete extends Component {
   render() {
     // this.props.userMessage && console.log(this.props.userMessage.user.message);
     return (
-      <div className="edit_profile">
-        <div className="edit_profile_container fadeInRightBig">
+      <div className="edit_account">
+        <div className="edit_account_container fadeInRightBig">
           {this.props.userMessage && (
             <div>{this.props.userMessage.user.message}</div>
           )}
 
-          <div className="delete_profile_general_info">
+          <div className="delete_account_general_info">
             <h2>Delete Account </h2>
-            <div className="edit_profile_general_info_border">
-              <div className="delete_profile_input_holder">
+            <div className="edit_account_general_info_border">
+              <div className="delete_account_input_holder">
                 <label>Name</label>
                 <input
                   type="text"
@@ -89,7 +89,7 @@ class Delete extends Component {
                   disabled
                 />
               </div>
-              <div className="delete_profile_input_holder">
+              <div className="delete_account_input_holder">
                 <label>Last Name</label>
                 <input
                   type="text"
@@ -98,7 +98,7 @@ class Delete extends Component {
                   disabled
                 />
               </div>
-              <div className="delete_profile_input_holder">
+              <div className="delete_account_input_holder">
                 <label>Email</label>
                 <input
                   type="email"
@@ -108,13 +108,13 @@ class Delete extends Component {
                 />
               </div>
               <div
-                className="delete_profile_input_holder"
+                className="delete_account_input_holder"
                 style={{ opacity: 0 }}
               >
                 <label>{""}</label>
                 <input type="password" name="password" />
               </div>
-              <div className="delete_profile_button_holder">
+              <div className="delete_account_button_holder">
                 <button onClick={this.confirmForDelete}>Delete</button>
               </div>
             </div>
@@ -127,10 +127,10 @@ class Delete extends Component {
               inputEmailConfirm={this.state.inputEmailConfirm}
             />
           )}
-          <div className="delete_proflie_photo">
+          <div className="delete_account_photo">
             <h2>Account Photo</h2>
-            <div className="edit_profile_photo_border">
-              <div className="delete_profile_photo_input_holder">
+            <div className="edit_account_photo_border">
+              <div className="delete_account_photo_input_holder">
                 <i className="fas fa-images" />
                 {this.state.photoUrl && (
                   <img src={this.state.photoUrl} alt={"There is no image"} />
@@ -144,7 +144,7 @@ class Delete extends Component {
   }
 }
 
-Delete.propTypes = {
+DeleteAccount.propTypes = {
   user: PropTypes.object,
   deleteUser: PropTypes.func,
   userMessage: PropTypes.object
@@ -158,4 +158,4 @@ const mapStateToProps = state => ({
 export default connect(
   mapStateToProps,
   { deleteUser }
-)(Delete);
+)(DeleteAccount);

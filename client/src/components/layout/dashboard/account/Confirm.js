@@ -1,6 +1,6 @@
 import React from "react";
 
-const confirm = ({
+const Confirm = ({
   cancel,
   confirmDeletingAcc,
   onChange,
@@ -39,4 +39,4 @@ const confirm = ({
   );
 };
 
-export default confirm;
+export default Confirm;
