@@ -66,7 +66,7 @@ exports.updateUser = (req, res, next) => {
       user.hashed_password = undefined;
       user.salt = undefined;
       // console.log("user after update with formdata: ", user);
-      res.json(user);
+      res.json({ user, message: "User update succesfuly!" });
     });
   });
 };

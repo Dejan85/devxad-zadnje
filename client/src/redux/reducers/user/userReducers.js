@@ -1,4 +1,4 @@
-import { USER_DELETED } from "../../type/user/userType";
+import { USER_DELETED, USER_UPDATE } from "../../type/user/userType";
 
 const initialState = {};
 
@@ -8,6 +8,12 @@ export default function(state = initialState, action) {
       return {
         ...state,
         user: action.payload
+      };
+
+    case USER_UPDATE:
+      return {
+        ...state,
+        message: action.payload
       };
 
     default:

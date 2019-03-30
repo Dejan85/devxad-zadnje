@@ -15,42 +15,46 @@ class EditAccount extends Component {
       email: "",
       password: "",
       photo: "",
-      fileSize: ""
+      fileSize: "",
+      photoUrl: ""
     };
   }
 
   onChange = e => {
     const value =
       e.target.name === "photo" ? e.target.files[0] : e.target.value;
-    const fileSize = e.target.name === "photo" ? e.target.files[0].size : 0;
+    // const fileSize = e.target.name === "photo" ? e.target.files[0].size : 0;
 
     this.userData.set(e.target.name, value);
     this.setState({
-      [e.target.name]: value,
-      fileSize
+      [e.target.name]: value
+      // fileSize
     });
   };
 
   onSubmit = e => {
     e.preventDefault();
+    // this is for reset redux for user message
+    this.props.updateUser(null, null);
 
-    this.props.updateUser(this.userData, this.props.user.id);
+    // now we update user for real
+    this.props.updateUser(this.userData, this.props.auth.id, false);
   };
 
   componentDidMount() {
     this.userData = new FormData();
+    this.props.updateUser(null, null, true);
 
     this.setState({
-      name: this.props.user.name,
-      lastname: this.props.user.lastname,
-      email: this.props.user.email
+      name: this.props.auth.name,
+      lastname: this.props.auth.lastname,
+      email: this.props.auth.email,
+      photoUrl: this.props.auth.image
     });
   }
 
   render() {
-    const id = this.props.user.id;
-    const photoUrl = `http://localhost:5000/user/photo/${id}`;
-
+    console.log("render radi");
     return (
       <form onSubmit={this.onSubmit}>
         <div className="edit_account">
@@ -112,7 +116,14 @@ class EditAccount extends Component {
                     onChange={this.onChange}
                   />
                   <i className="fas fa-images" />
-                  <img src={photoUrl} alt={""} />
+                  {/* {(this.props.message && this.state.photoUrl && (
+                    <img src={this.state.photoUrl} alt={""} />
+                  )) ||
+                    (!this.props.message && <div>Loading...</div>)} */}
+
+                  {this.props.message && this.state.photoUrl && (
+                    <img src={this.state.photoUrl} alt={""} />
+                  )}
                 </div>
               </div>
             </div>
@@ -124,12 +135,14 @@ class EditAccount extends Component {
 }
 
 EditAccount.propTypes = {
-  user: PropTypes.object,
-  updateUser: PropTypes.func
+  auth: PropTypes.object,
+  updateUser: PropTypes.func,
+  message: PropTypes.oneOfType([PropTypes.string, PropTypes.bool])
 };
 
 const mapStateToProps = state => ({
-  user: state.auth.user
+  auth: state.auth.user.user,
+  message: state.user.message
 });
 
 export default connect(

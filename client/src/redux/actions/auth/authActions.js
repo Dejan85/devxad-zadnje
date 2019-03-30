@@ -2,7 +2,10 @@ import { SIGNUP, LOGOUT } from "../../type/auth/authTypes";
 import { decodeToken } from "../../../utils/decodeToken";
 import { setCurrentUser } from "../../../utils/setCurrentUser";
 
-// user registration
+//
+// ─── USER REGISTRATION ──────────────────────────────────────────────────────────
+//
+
 export const signup = (reset, user) => dispatch => {
   if (!reset) {
     return fetch("/signup", {
@@ -33,7 +36,10 @@ export const signup = (reset, user) => dispatch => {
   }
 };
 
-// user login
+//
+// ─── USER LOGIN ─────────────────────────────────────────────────────────────────
+//
+
 export const userLogin = user => dispatch => {
   return fetch("/login", {
     method: "POST",
@@ -62,7 +68,10 @@ export const userLogin = user => dispatch => {
     });
 };
 
-// user logout
+//
+// ─── USER LOGOUT ────────────────────────────────────────────────────────────────
+//
+
 export const userLogout = () => dispatch => {
   return fetch("/logout", {
     method: "GET"

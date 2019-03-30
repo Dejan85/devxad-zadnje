@@ -1,10 +1,25 @@
-import { GET_USER, USER_DELETED } from "../../type/user/userType";
+import { USER_DELETED, USER_UPDATE } from "../../type/user/userType";
 
 //
 // ─── EDIT USER ──────────────────────────────────────────────────────────────────
 //
 
-export const updateUser = (user, id) => dispatch => {
+export const updateUser = (user, id, xad) => dispatch => {
+  if (xad) {
+    return dispatch({
+      type: USER_UPDATE,
+      payload: true
+    });
+  }
+
+  // this is for reset reducers message
+  if (!user && !id) {
+    return dispatch({
+      type: USER_UPDATE,
+      payload: null
+    });
+  }
+
   const token = localStorage.getItem("jwt");
   return fetch(`/user/${id}`, {
     method: "PUT",
@@ -17,6 +32,13 @@ export const updateUser = (user, id) => dispatch => {
     .then(res => {
       return res.json();
     })
+    .then(response => {
+      console.log(response);
+      dispatch({
+        type: USER_UPDATE,
+        payload: response.message
+      });
+    })
     .catch(err => {
       console.log(err);
     });
@@ -27,12 +49,14 @@ export const updateUser = (user, id) => dispatch => {
 //
 
 export const deleteUser = id => dispatch => {
+  const token = localStorage.getItem("jwt");
+
   return fetch(`/user/${id}`, {
     method: "DELETE",
     headers: {
       Accept: "application/json",
-      "Content-Type": "application/json"
-      // Authorization: `Bearer ${token}`
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${token}`
     }
   })
     .then(res => {

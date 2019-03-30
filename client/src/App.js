@@ -45,8 +45,11 @@ class App extends Component {
   // get user info from token to redux globaly
   componentWillMount() {
     const token = decodeToken();
+    const user = {
+      user: token
+    };
     if (token) {
-      store.dispatch(setCurrentUser(token));
+      store.dispatch(setCurrentUser(user));
     }
   }
 

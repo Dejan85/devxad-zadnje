@@ -1,12 +1,14 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
+import { Redirect } from "react-router-dom";
 
 // component
 import Confirm from "./Confirm";
 
 // redux method
 import { deleteUser } from "../../../../redux/actions/user/userActions";
+import { userLogout } from "../../../../redux/actions/auth/authActions";
 
 class DeleteAccount extends Component {
   constructor() {
@@ -20,16 +22,16 @@ class DeleteAccount extends Component {
       confirm: false,
       radio1: false,
       radio2: false,
-      inputEmailConfirm: ""
+      inputEmailConfirm: "",
+      redirect: false
     };
   }
 
   componentDidMount() {
-    const { id, name, lastname, email } = this.props.user;
-    const photoUrl = `http://localhost:5000/user/photo/${id}`;
+    const { id, name, lastname, email, image } = this.props.user;
 
     if (id) {
-      this.setState({ name, lastname, email, photoUrl });
+      this.setState({ name, lastname, email, photoUrl: image });
     }
   }
 
@@ -65,17 +67,24 @@ class DeleteAccount extends Component {
       confirm.answer2 &&
       confirm.inputEmailConfirm &&
       confirm.inputEmailConfirm === this.props.user.email &&
-      this.props.deleteUser(this.props.user.id);
+      this.props.userLogout() &&
+      this.props.deleteUser(this.props.user.id) &&
+      this.setState({
+        redirect: true
+      });
   };
 
   render() {
     // this.props.userMessage && console.log(this.props.userMessage.user.message);
+    if (this.state.redirect) {
+      return <Redirect to="/" />;
+    }
     return (
       <div className="edit_account">
         <div className="edit_account_container fadeInRightBig">
-          {this.props.userMessage && (
+          {/* {this.props.userMessage && (
             <div>{this.props.userMessage.user.message}</div>
-          )}
+          )} */}
 
           <div className="delete_account_general_info">
             <h2>Delete Account </h2>
@@ -147,15 +156,16 @@ class DeleteAccount extends Component {
 DeleteAccount.propTypes = {
   user: PropTypes.object,
   deleteUser: PropTypes.func,
-  userMessage: PropTypes.object
+  userMessage: PropTypes.object,
+  userLogout: PropTypes.func
 };
 
 const mapStateToProps = state => ({
-  user: state.auth.user,
+  user: state.auth.user.user,
   userMessage: state.user
 });
 
 export default connect(
   mapStateToProps,
-  { deleteUser }
+  { deleteUser, userLogout }
 )(DeleteAccount);
