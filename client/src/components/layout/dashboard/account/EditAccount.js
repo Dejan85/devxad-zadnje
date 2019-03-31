@@ -29,32 +29,40 @@ class EditAccount extends Component {
     this.setState({
       [e.target.name]: value
       // fileSize
+      // photoUrl: `/user/photo/${this.props.auth.id}?${new Date().getTime()}`
     });
+
+    this.props.updateUser(null, null, true);
+
+    e.target.name === "photo" &&
+      this.props.updateUser(this.userData, this.props.auth.id, null);
   };
 
   onSubmit = e => {
     e.preventDefault();
     // this is for reset redux for user message
-    this.props.updateUser(null, null);
+    this.props.updateUser(null, null, null);
 
     // now we update user for real
-    this.props.updateUser(this.userData, this.props.auth.id, false);
+    this.props.updateUser(this.userData, this.props.auth.id, null);
   };
 
   componentDidMount() {
     this.userData = new FormData();
+
+    // this is for reset redux for user message
     this.props.updateUser(null, null, true);
 
     this.setState({
       name: this.props.auth.name,
       lastname: this.props.auth.lastname,
       email: this.props.auth.email,
-      photoUrl: this.props.auth.image
+      photoUrl: `/user/photo/${this.props.auth.id}?${new Date().getTime()}`
     });
   }
 
   render() {
-    console.log("render radi");
+    const photo = `/user/photo/${this.props.auth.id}?${new Date().getTime()}`;
     return (
       <form onSubmit={this.onSubmit}>
         <div className="edit_account">
@@ -119,11 +127,18 @@ class EditAccount extends Component {
                   {/* {(this.props.message && this.state.photoUrl && (
                     <img src={this.state.photoUrl} alt={""} />
                   )) ||
-                    (!this.props.message && <div>Loading...</div>)} */}
+                    (!this.props.message && <div>Waiting for submit...</div>)} */}
 
-                  {this.props.message && this.state.photoUrl && (
-                    <img src={this.state.photoUrl} alt={""} />
+                  {this.props.message && (
+                    <img
+                      src={`/user/photo/${
+                        this.props.auth.id
+                      }?${new Date().getTime()}`}
+                      alt={""}
+                    />
                   )}
+
+                  {/* <img src={photo} alt={""} /> */}
                 </div>
               </div>
             </div>
