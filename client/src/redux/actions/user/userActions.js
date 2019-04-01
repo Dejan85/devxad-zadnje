@@ -1,4 +1,5 @@
 import { USER_DELETED, USER_UPDATE } from "../../type/user/userType";
+import { decodeToken } from "../../../utils/decodeToken";
 import { setCurrentUser } from "../../../utils/setCurrentUser";
 
 //
@@ -35,15 +36,13 @@ export const updateUser = (user, id, reset) => dispatch => {
       return res.json();
     })
     .then(response => {
-      console.log(response.user);
-
+      localStorage.setItem("jwt", response.token);
+      const token = decodeToken();
       const user = {
-        error: null,
-        message: null,
-        user: response.user
+        user: token
       };
 
-      // setCurrentUser(user);
+      dispatch(setCurrentUser(user));
       dispatch({
         type: USER_UPDATE,
         payload: response.message

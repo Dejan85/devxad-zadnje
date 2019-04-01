@@ -2,6 +2,8 @@ const User = require("../../auth/models");
 const _ = require("lodash");
 const fs = require("fs");
 const formidable = require("formidable");
+const jwt = require("jsonwebtoken");
+require("dotenv").config();
 
 //
 // ─── GET USER BY ID ─────────────────────────────────────────────────────────────
@@ -67,8 +69,21 @@ exports.updateUser = (req, res, next) => {
       user.salt = undefined;
       user.photo = undefined;
 
+      // generate a token with user id and secret
+      const token = jwt.sign(
+        // { _id: user._id, role: user.role },
+        {
+          _id: user._id,
+          name: user.name,
+          lastname: user.lastname,
+          email: user.email
+          // role: user.role
+        },
+        process.env.JWT_SECRET
+      );
+
       // console.log("user after update with formdata: ", user);
-      res.json({ user, message: "User update succesfuly!" });
+      res.json({ token, message: "User update succesfuly!" });
     });
   });
 };

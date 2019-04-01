@@ -55,7 +55,6 @@ class EditAccount extends Component {
     // now we update user for real
     this.props.updateUser(this.userData, this.props.auth._id, null);
     if (this.props.message) {
-      console.log(this.props.message);
       this.props.dashboardNavigation("account");
     }
   };
@@ -75,7 +74,6 @@ class EditAccount extends Component {
       lastname: this.props.auth.lastname,
       email: this.props.auth.email
     });
-    console.log(this.props.auth);
   }
 
   render() {

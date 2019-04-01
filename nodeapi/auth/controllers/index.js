@@ -1,7 +1,5 @@
 const jwt = require("jsonwebtoken");
 const User = require("../models");
-const fs = require("fs");
-const formidable = require("formidable");
 const _ = require("lodash");
 require("dotenv").config();
 

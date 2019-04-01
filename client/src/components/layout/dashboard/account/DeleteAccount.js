@@ -28,10 +28,10 @@ class DeleteAccount extends Component {
   }
 
   componentDidMount() {
-    const { id, name, lastname, email, image } = this.props.user;
+    const { _id, name, lastname, email } = this.props.user;
 
-    if (id) {
-      this.setState({ name, lastname, email, photoUrl: image });
+    if (_id) {
+      this.setState({ name, lastname, email });
     }
   }
 
@@ -68,24 +68,19 @@ class DeleteAccount extends Component {
       confirm.inputEmailConfirm &&
       confirm.inputEmailConfirm === this.props.user.email &&
       this.props.userLogout() &&
-      this.props.deleteUser(this.props.user.id) &&
+      this.props.deleteUser(this.props.user._id) &&
       this.setState({
         redirect: true
       });
   };
 
   render() {
-    // this.props.userMessage && console.log(this.props.userMessage.user.message);
     if (this.state.redirect) {
       return <Redirect to="/" />;
     }
     return (
       <div className="edit_account">
         <div className="edit_account_container fadeInRightBig">
-          {/* {this.props.userMessage && (
-            <div>{this.props.userMessage.user.message}</div>
-          )} */}
-
           <div className="delete_account_general_info">
             <h2>Delete Account </h2>
             <div className="edit_account_general_info_border">
@@ -141,8 +136,13 @@ class DeleteAccount extends Component {
             <div className="edit_account_photo_border">
               <div className="delete_account_photo_input_holder">
                 <i className="fas fa-images" />
-                {this.state.photoUrl && (
-                  <img src={this.state.photoUrl} alt={"There is no image"} />
+                {this.props.user && (
+                  <img
+                    src={`/user/photo/${
+                      this.props.user._id
+                    }?${new Date().getTime()}`}
+                    alt={"There is no image"}
+                  />
                 )}
               </div>
             </div>
