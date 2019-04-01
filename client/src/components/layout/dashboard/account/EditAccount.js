@@ -29,11 +29,15 @@ class EditAccount extends Component {
   //
 
   onChange = e => {
+    this.setState({
+      photoUrl: e.target.value
+    });
     const value =
       e.target.name === "photo" ? e.target.files[0] : e.target.value;
     // const fileSize = e.target.name === "photo" ? e.target.files[0].size : 0;
 
-    this.userData.set(e.target.name, value);
+    e.target.name !== "photo" && this.userData.set(e.target.name, value);
+
     this.setState({
       [e.target.name]: value
       // fileSize
@@ -42,8 +46,10 @@ class EditAccount extends Component {
     // ovaj ovde reset reduxa nam treba da bi on change pojavljivao se loading image
     e.target.name === "photo" && this.props.updateUser(null, null, false);
 
-    e.target.name === "photo" &&
-      this.props.updateUser(this.userData, this.props.auth._id, null);
+    if (e.target.name === "photo") {
+      this.photoData.set(e.target.name, value);
+      this.props.updateUser(this.photoData, this.props.auth._id, null);
+    }
   };
 
   //
@@ -65,6 +71,7 @@ class EditAccount extends Component {
 
   componentDidMount() {
     this.userData = new FormData();
+    this.photoData = new FormData();
 
     // here we will set message to true
     this.props.updateUser(null, null, true);
@@ -77,6 +84,7 @@ class EditAccount extends Component {
   }
 
   render() {
+    console.log(this.state.photoUrl);
     return (
       <form onSubmit={this.onSubmit}>
         <div className="edit_account">
