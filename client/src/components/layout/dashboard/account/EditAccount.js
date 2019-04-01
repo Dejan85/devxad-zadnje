@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
+import loading from "../../../../images/loading.gif";
 
 // redux method
 import { updateUser } from "../../../../redux/actions/user/userActions";
@@ -124,19 +125,24 @@ class EditAccount extends Component {
                     onChange={this.onChange}
                   />
                   <i className="fas fa-images" />
-                  {/* {(this.props.message && this.state.photoUrl && (
-                    <img src={this.state.photoUrl} alt={""} />
-                  )) ||
-                    (!this.props.message && <div>Waiting for submit...</div>)} */}
-
-                  {this.props.message && (
+                  {(this.props.message && this.state.photoUrl && (
                     <img
                       src={`/user/photo/${
                         this.props.auth.id
                       }?${new Date().getTime()}`}
                       alt={""}
                     />
-                  )}
+                  )) ||
+                    (!this.props.message && <div>Waiting for submit...</div>)}
+
+                  {/* {this.props.message && (
+                    <img
+                      src={`/user/photo/${
+                        this.props.auth.id
+                      }?${new Date().getTime()}`}
+                      alt={""}
+                    />
+                  )} */}
 
                   {/* <img src={photo} alt={""} /> */}
                 </div>
