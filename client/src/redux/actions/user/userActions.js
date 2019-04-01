@@ -1,11 +1,13 @@
 import { USER_DELETED, USER_UPDATE } from "../../type/user/userType";
+import { setCurrentUser } from "../../../utils/setCurrentUser";
 
 //
 // ─── EDIT USER ──────────────────────────────────────────────────────────────────
 //
 
-export const updateUser = (user, id, xad) => dispatch => {
-  if (xad) {
+export const updateUser = (user, id, reset) => dispatch => {
+  // this is for reset reducers message
+  if (reset) {
     return dispatch({
       type: USER_UPDATE,
       payload: true
@@ -33,7 +35,15 @@ export const updateUser = (user, id, xad) => dispatch => {
       return res.json();
     })
     .then(response => {
-      console.log(response);
+      console.log(response.user);
+
+      const user = {
+        error: null,
+        message: null,
+        user: response.user
+      };
+
+      // setCurrentUser(user);
       dispatch({
         type: USER_UPDATE,
         payload: response.message

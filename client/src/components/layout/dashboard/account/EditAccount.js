@@ -2,8 +2,11 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
 import loading from "../../../../images/loading.gif";
+import { dashboardNavigation } from "../../../../redux/actions/layout/layoutActions";
 
-// redux method
+//
+// ─── REDUX METHOD ───────────────────────────────────────────────────────────────
+//
 import { updateUser } from "../../../../redux/actions/user/userActions";
 
 class EditAccount extends Component {
@@ -21,6 +24,10 @@ class EditAccount extends Component {
     };
   }
 
+  //
+  // ─── ON CHANGE FOR INPUT CHANGE ─────────────────────────────────────────────────
+  //
+
   onChange = e => {
     const value =
       e.target.name === "photo" ? e.target.files[0] : e.target.value;
@@ -30,40 +37,48 @@ class EditAccount extends Component {
     this.setState({
       [e.target.name]: value
       // fileSize
-      // photoUrl: `/user/photo/${this.props.auth.id}?${new Date().getTime()}`
     });
 
-    this.props.updateUser(null, null, true);
+    // ovaj ovde reset reduxa nam treba da bi on change pojavljivao se loading image
+    e.target.name === "photo" && this.props.updateUser(null, null, false);
 
     e.target.name === "photo" &&
-      this.props.updateUser(this.userData, this.props.auth.id, null);
+      this.props.updateUser(this.userData, this.props.auth._id, null);
   };
+
+  //
+  // ─── ON SUBMIT FOR FORM SUBMIT ──────────────────────────────────────────────────
+  //
 
   onSubmit = e => {
     e.preventDefault();
-    // this is for reset redux for user message
-    this.props.updateUser(null, null, null);
-
     // now we update user for real
-    this.props.updateUser(this.userData, this.props.auth.id, null);
+    this.props.updateUser(this.userData, this.props.auth._id, null);
+    if (this.props.message) {
+      console.log(this.props.message);
+      this.props.dashboardNavigation("account");
+    }
   };
+
+  //
+  // ─── CREATE FORM DATA AND RESET REDUX AND SET USER INFO TO STATE ────────────────
+  //
 
   componentDidMount() {
     this.userData = new FormData();
 
-    // this is for reset redux for user message
+    // here we will set message to true
     this.props.updateUser(null, null, true);
 
     this.setState({
       name: this.props.auth.name,
       lastname: this.props.auth.lastname,
-      email: this.props.auth.email,
-      photoUrl: `/user/photo/${this.props.auth.id}?${new Date().getTime()}`
+      email: this.props.auth.email
     });
+    console.log(this.props.auth);
   }
 
   render() {
-    const photo = `/user/photo/${this.props.auth.id}?${new Date().getTime()}`;
     return (
       <form onSubmit={this.onSubmit}>
         <div className="edit_account">
@@ -125,26 +140,15 @@ class EditAccount extends Component {
                     onChange={this.onChange}
                   />
                   <i className="fas fa-images" />
-                  {(this.props.message && this.state.photoUrl && (
+
+                  {(this.props.message && (
                     <img
                       src={`/user/photo/${
-                        this.props.auth.id
+                        this.props.auth._id
                       }?${new Date().getTime()}`}
                       alt={""}
                     />
-                  )) ||
-                    (!this.props.message && <div>Waiting for submit...</div>)}
-
-                  {/* {this.props.message && (
-                    <img
-                      src={`/user/photo/${
-                        this.props.auth.id
-                      }?${new Date().getTime()}`}
-                      alt={""}
-                    />
-                  )} */}
-
-                  {/* <img src={photo} alt={""} /> */}
+                  )) || <img src={loading} alt="" />}
                 </div>
               </div>
             </div>
@@ -158,7 +162,8 @@ class EditAccount extends Component {
 EditAccount.propTypes = {
   auth: PropTypes.object,
   updateUser: PropTypes.func,
-  message: PropTypes.oneOfType([PropTypes.string, PropTypes.bool])
+  message: PropTypes.oneOfType([PropTypes.string, PropTypes.bool]),
+  dashboardNavigation: PropTypes.func
 };
 
 const mapStateToProps = state => ({
@@ -168,5 +173,5 @@ const mapStateToProps = state => ({
 
 export default connect(
   mapStateToProps,
-  { updateUser }
+  { updateUser, dashboardNavigation }
 )(EditAccount);

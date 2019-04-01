@@ -23,8 +23,8 @@ class Nav extends Component {
       dropMenu: false,
       arowUp: "fas fa-angle-up ",
       arowDwon: " fas fa-angle-down ",
-      user: {},
-      photo: undefined
+      user: {}
+      // image: `/user/photo/${this.state.user._id}?${new Date().getTime()}`
     };
   }
 
@@ -180,7 +180,12 @@ class Nav extends Component {
                     />
                   )}
                   <div className="avatar">
-                    <img src={this.state.user.image} alt="" />
+                    <img
+                      src={`/user/photo/${
+                        this.state.user._id
+                      }?${new Date().getTime()}`}
+                      alt=""
+                    />
                   </div>
                 </li>
               )}

@@ -17,7 +17,6 @@ exports.userRegister = async (req, res) => {
   const user = await new User(req.body);
   await user.save();
   res.status(200).json({ message: "Signup success!" });
-  console.log(user);
 };
 
 //
@@ -45,11 +44,10 @@ exports.userLogin = (req, res) => {
     const token = jwt.sign(
       // { _id: user._id, role: user.role },
       {
-        id: user._id,
+        _id: user._id,
         name: user.name,
         lastname: user.lastname,
-        email: user.email,
-        image: `/user/photo/${user._id}`
+        email: user.email
         // role: user.role
       },
       process.env.JWT_SECRET
