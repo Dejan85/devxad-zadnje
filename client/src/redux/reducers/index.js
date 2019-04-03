@@ -14,10 +14,10 @@ import dashboardReducers from "./layout/dashboard/dashboardReducers";
 import authReducers from "./auth/authReducers";
 
 //
-// ─── USER REDUCERS ──────────────────────────────────────────────────────────────
+// ─── ACCOUNT REDUCERS ──────────────────────────────────────────────────────────────
 //
 
-import userReducers from "./user/userReducers";
+import accountReducers from "./account/accountReducers";
 
 //
 // ─── COMBINE ALL REDUCERS ───────────────────────────────────────────────────────
@@ -30,6 +30,6 @@ export default combineReducers({
   dashboardNavigation: dashboardReducers,
   // auth reducers
   auth: authReducers,
-  // user reducers
-  user: userReducers
+  // account reducers
+  account: accountReducers
 });

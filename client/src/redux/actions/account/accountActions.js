@@ -1,4 +1,7 @@
-import { USER_DELETED, USER_UPDATE } from "../../type/user/userType";
+import {
+  ACCOUNT_DELETED,
+  ACCOUNT_UPDATE
+} from "../../type/account/accountType";
 import { decodeToken } from "../../../utils/decodeToken";
 import { setCurrentUser } from "../../../utils/setCurrentUser";
 
@@ -6,11 +9,11 @@ import { setCurrentUser } from "../../../utils/setCurrentUser";
 // ─── EDIT USER ──────────────────────────────────────────────────────────────────
 //
 
-export const updateUser = (user, id, reset) => dispatch => {
+export const updateAccount = (user, id, reset) => dispatch => {
   // this is for reset reducers message
   if (reset) {
     return dispatch({
-      type: USER_UPDATE,
+      type: ACCOUNT_UPDATE,
       payload: true
     });
   }
@@ -18,7 +21,7 @@ export const updateUser = (user, id, reset) => dispatch => {
   // this is for reset reducers message
   if (!user && !id) {
     return dispatch({
-      type: USER_UPDATE,
+      type: ACCOUNT_UPDATE,
       payload: null
     });
   }
@@ -44,7 +47,7 @@ export const updateUser = (user, id, reset) => dispatch => {
 
       dispatch(setCurrentUser(user));
       dispatch({
-        type: USER_UPDATE,
+        type: ACCOUNT_UPDATE,
         payload: response.message
       });
     })
@@ -57,7 +60,7 @@ export const updateUser = (user, id, reset) => dispatch => {
 // ─── DELETE USER ────────────────────────────────────────────────────────────────
 //
 
-export const deleteUser = id => dispatch => {
+export const deleteAccount = id => dispatch => {
   const token = localStorage.getItem("jwt");
 
   return fetch(`/user/${id}`, {
@@ -72,7 +75,7 @@ export const deleteUser = id => dispatch => {
       localStorage.removeItem("jwt");
       return res.json().then(response => {
         dispatch({
-          type: USER_DELETED,
+          type: ACCOUNT_DELETED,
           payload: response
         });
       });

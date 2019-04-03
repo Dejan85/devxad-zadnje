@@ -7,7 +7,7 @@ import { dashboardNavigation } from "../../../../redux/actions/layout/layoutActi
 //
 // ─── REDUX METHOD ───────────────────────────────────────────────────────────────
 //
-import { updateUser } from "../../../../redux/actions/user/userActions";
+import { updateAccount } from "../../../../redux/actions/account/accountActions";
 
 class EditAccount extends Component {
   constructor() {
@@ -44,11 +44,11 @@ class EditAccount extends Component {
     });
 
     // ovaj ovde reset reduxa nam treba da bi on change pojavljivao se loading image
-    e.target.name === "photo" && this.props.updateUser(null, null, false);
+    e.target.name === "photo" && this.props.updateAccount(null, null, false);
 
     if (e.target.name === "photo") {
       this.photoData.set(e.target.name, value);
-      this.props.updateUser(this.photoData, this.props.auth._id, null);
+      this.props.updateAccount(this.photoData, this.props.auth._id, null);
     }
   };
 
@@ -59,7 +59,7 @@ class EditAccount extends Component {
   onSubmit = e => {
     e.preventDefault();
     // now we update user for real
-    this.props.updateUser(this.userData, this.props.auth._id, null);
+    this.props.updateAccount(this.userData, this.props.auth._id, null);
     if (this.props.message) {
       this.props.dashboardNavigation("account");
     }
@@ -74,7 +74,7 @@ class EditAccount extends Component {
     this.photoData = new FormData();
 
     // here we will set message to true
-    this.props.updateUser(null, null, true);
+    this.props.updateAccount(null, null, true);
 
     this.setState({
       name: this.props.auth.name,
@@ -167,17 +167,17 @@ class EditAccount extends Component {
 
 EditAccount.propTypes = {
   auth: PropTypes.object,
-  updateUser: PropTypes.func,
+  updateAccount: PropTypes.func,
   message: PropTypes.oneOfType([PropTypes.string, PropTypes.bool]),
   dashboardNavigation: PropTypes.func
 };
 
 const mapStateToProps = state => ({
   auth: state.auth.user.user,
-  message: state.user.message
+  message: state.account.message
 });
 
 export default connect(
   mapStateToProps,
-  { updateUser, dashboardNavigation }
+  { updateAccount, dashboardNavigation }
 )(EditAccount);

@@ -1,16 +1,19 @@
-import { USER_DELETED, USER_UPDATE } from "../../type/user/userType";
+import {
+  ACCOUNT_DELETED,
+  ACCOUNT_UPDATE
+} from "../../type/account/accountType";
 
 const initialState = {};
 
 export default function(state = initialState, action) {
   switch (action.type) {
-    case USER_DELETED:
+    case ACCOUNT_DELETED:
       return {
         ...state,
-        user: action.payload
+        account: action.payload
       };
 
-    case USER_UPDATE:
+    case ACCOUNT_UPDATE:
       return {
         ...state,
         message: action.payload
