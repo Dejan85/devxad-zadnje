@@ -9,7 +9,7 @@ require("dotenv").config();
 // ─── GET USER BY ID ─────────────────────────────────────────────────────────────
 //
 
-exports.userById = (req, res, next, id) => {
+exports.accountById = (req, res, next, id) => {
   User.findById(id).exec((err, user) => {
     if (err) {
       res.status(400).json({
@@ -25,7 +25,7 @@ exports.userById = (req, res, next, id) => {
 // ─── GET USER ───────────────────────────────────────────────────────────────────
 //
 
-exports.getUser = (req, res) => {
+exports.getAccount = (req, res) => {
   req.profile.hashed_password = undefined;
   req.profile.salt = undefined;
   return res.json(req.profile);
@@ -36,7 +36,7 @@ exports.getUser = (req, res) => {
 //
 
 // update user
-exports.updateUser = (req, res, next) => {
+exports.updateAccount = (req, res, next) => {
   let form = new formidable.IncomingForm();
   // console.log("incoming form data: ", form);
   form.keepExtensions = true;
@@ -92,7 +92,7 @@ exports.updateUser = (req, res, next) => {
 // ─── USER PHOTO ─────────────────────────────────────────────────────────────────
 //
 
-exports.userPhoto = (req, res, next) => {
+exports.accountPhoto = (req, res, next) => {
   if (req.profile.photo.data) {
     res.set(("Content-Type", req.profile.photo.contentType));
     return res.send(req.profile.photo.data);
@@ -104,7 +104,7 @@ exports.userPhoto = (req, res, next) => {
 // ─── DELETE USER ────────────────────────────────────────────────────────────────
 //
 
-exports.deleteUser = (req, res, next) => {
+exports.deleteAccount = (req, res, next) => {
   let user = req.profile;
   user.remove((err, user) => {
     if (err) {

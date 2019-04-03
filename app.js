@@ -45,8 +45,8 @@ const auth = require("./nodeapi/auth/routes");
 app.use("/", auth);
 
 // user routes
-const user = require("./nodeapi/user/routes");
-app.use("/", user);
+const account = require("./nodeapi/account/routes");
+app.use("/", account);
 
 //
 // ─── THIS IS SETUP FOR HEROKU DEPLOY ────────────────────────────────────────────
