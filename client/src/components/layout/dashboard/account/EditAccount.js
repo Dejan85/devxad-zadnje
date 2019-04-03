@@ -84,7 +84,6 @@ class EditAccount extends Component {
   }
 
   render() {
-    console.log(this.state.photoUrl);
     return (
       <form onSubmit={this.onSubmit}>
         <div className="edit_account">

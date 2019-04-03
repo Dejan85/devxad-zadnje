@@ -5,7 +5,11 @@ import { connect } from "react-redux";
 import Account from "./account/Account";
 import EditAccount from "./account/EditAccount";
 import DeleteAccount from "./account/DeleteAccount";
-import Project from "./project/Project";
+// project component
+import Project from "./projects/Project";
+import AddProject from "./projects/AddProject";
+import EditProject from "./projects/EditProject";
+import DeleteProject from "./projects/DeleteProject";
 
 class DashboardContent extends Component {
   render() {
@@ -21,6 +25,9 @@ class DashboardContent extends Component {
 
         {/* project */}
         {this.props.page && this.props.page.project && <Project />}
+        {this.props.page && this.props.page.addproject && <AddProject />}
+        {this.props.page && this.props.page.editproject && <EditProject />}
+        {this.props.page && this.props.page.deleteproject && <DeleteProject />}
       </div>
     );
   }

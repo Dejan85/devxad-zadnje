@@ -7,7 +7,7 @@ import { Redirect } from "react-router-dom";
 import Confirm from "./Confirm";
 
 // redux method
-import { deleteUser } from "../../../../redux/actions/user/userActions";
+import { deleteAccount } from "../../../../redux/actions/account/accountActions";
 import { userLogout } from "../../../../redux/actions/auth/authActions";
 
 class DeleteAccount extends Component {
@@ -68,7 +68,7 @@ class DeleteAccount extends Component {
       confirm.inputEmailConfirm &&
       confirm.inputEmailConfirm === this.props.user.email &&
       this.props.userLogout() &&
-      this.props.deleteUser(this.props.user._id) &&
+      this.props.deleteAccount(this.props.user._id) &&
       this.setState({
         redirect: true
       });
@@ -141,7 +141,7 @@ class DeleteAccount extends Component {
                     src={`/user/photo/${
                       this.props.user._id
                     }?${new Date().getTime()}`}
-                    alt={"There is no image"}
+                    alt={""}
                   />
                 )}
               </div>
@@ -155,17 +155,17 @@ class DeleteAccount extends Component {
 
 DeleteAccount.propTypes = {
   user: PropTypes.object,
-  deleteUser: PropTypes.func,
+  deleteAccount: PropTypes.func,
   userMessage: PropTypes.object,
   userLogout: PropTypes.func
 };
 
 const mapStateToProps = state => ({
   user: state.auth.user.user,
-  userMessage: state.user
+  userMessage: state.account
 });
 
 export default connect(
   mapStateToProps,
-  { deleteUser, userLogout }
+  { deleteAccount, userLogout }
 )(DeleteAccount);

@@ -20,6 +20,12 @@ import authReducers from "./auth/authReducers";
 import accountReducers from "./account/accountReducers";
 
 //
+// ─── PROJECTS REDUCERS ───────────────────────────────────────────────────────────
+//
+
+import projectsReducers from "./projects/projectsReducers";
+
+//
 // ─── COMBINE ALL REDUCERS ───────────────────────────────────────────────────────
 //
 
@@ -31,5 +37,7 @@ export default combineReducers({
   // auth reducers
   auth: authReducers,
   // account reducers
-  account: accountReducers
+  account: accountReducers,
+  // projects reducers
+  projects: projectsReducers
 });

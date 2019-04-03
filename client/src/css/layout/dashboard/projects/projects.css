@@ -1,4 +1,4 @@
-.account {
+.projects {
   display: flex;
   background: white;
   overflow-x: hidden;
@@ -6,7 +6,7 @@
   height: 100vh;
 }
 
-.account_container {
+.projects_container {
   display: flex;
   font-family: "Dosis", sans-serif;
   /* background: #f8f9fa; */
@@ -15,8 +15,8 @@
 }
 
 /*
- * ─── MENU CONTAINER ─────────────────────────────────────────────────────────────
- */
+   * ─── MENU CONTAINER ─────────────────────────────────────────────────────────────
+   */
 
 .menu_container {
   display: flex;
@@ -25,13 +25,14 @@
   flex: 1;
   padding-top: 100px;
   /* padding-left: 5px;
-  padding-right: 5px; */
+    padding-right: 5px; */
 }
 
-.edit_account_btn,
-.delete_account_btn {
+.add_projects_btn,
+.edit_projects_btn,
+.delete_projects_btn {
   display: flex;
-  width: 440px;
+  width: 380px;
   height: 200px;
   background: #f39c11;
   border-radius: 5px;
@@ -42,21 +43,35 @@
   margin-left: 20px;
 }
 
-.delete_account_btn {
-  background: #de4b39 !important;
+.add_projects_btn {
+  background: #00c0ef;
 }
 
-.edit_account_btn:hover {
+.add_projects_btn:hover {
+  background: #09b4df;
+}
+
+.edit_projects_btn:hover {
   /* background: #05b4e0; */
   background: #e09111;
 }
 
-.delete_account_btn:hover {
+.edit_projects_btn:hover {
+  /* background: #05b4e0; */
+  background: #e09111;
+}
+
+.delete_projects_btn {
+  background: #de4b39 !important;
+}
+
+.delete_projects_btn:hover {
   background: #ce4735 !important;
 }
 
-.edit_account_btn_container,
-.delete_account_btn_container {
+.add_projects_btn_container,
+.edit_projects_btn_container,
+.delete_projects_btn_container {
   display: flex;
   flex: 1;
   justify-content: space-between;
@@ -65,8 +80,9 @@
   padding-right: 15px;
 }
 
-.edit_account_btn_container p,
-.delete_account_btn_container p {
+.add_projects_btn_container p,
+.edit_projects_btn_container p,
+.delete_projects_btn_container p {
   color: white;
   font-family: Montserrat, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
     Helvetica Neue, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji,
@@ -74,12 +90,17 @@
   font-size: 30px;
 }
 
-.edit_account_btn_container i,
-.delete_account_btn_container i {
+.add_projects_btn_container i,
+.edit_projects_btn_container i,
+.delete_projects_btn_container i {
   color: #cd850d;
   font-size: 120px;
 }
 
-.delete_account_btn_container i {
+.delete_projects_btn_container i {
   color: #bb4030 !important;
+}
+
+.add_projects_btn_container i {
+  color: #00a1cb;
 }

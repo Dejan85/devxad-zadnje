@@ -16,9 +16,15 @@
  */
 
 @import url("./css/layout/dashboard/dashboard.css");
+
+/* account */
 @import url("./css/layout/dashboard/account/account.css");
 @import url("./css/layout/dashboard/account/edit_account.css");
 @import url("./css/layout/dashboard/account/delete_account.css");
+
+/* projects */
+@import url("./css/layout/dashboard/projects/projects.css");
+@import url("./css/layout/dashboard/projects/add_project.css");
 /*
  * ─── AUTH ───────────────────────────────────────────────────────────────────────
  */
