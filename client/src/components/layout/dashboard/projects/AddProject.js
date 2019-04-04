@@ -7,11 +7,23 @@ class AddProject extends Component {
     super();
 
     this.state = {
-      text: ""
+      text: "",
+      image: []
     };
   }
 
+  onChange = e => {
+    const arr = [...this.state.image, e.target.value];
+
+    if (e.target.name === "image") {
+      this.setState({
+        [e.target.name]: arr
+      });
+    }
+  };
+
   render() {
+    console.log(this.state.image);
     return (
       <form onSubmit={this.onSubmit}>
         <div className="add_project">
@@ -19,11 +31,49 @@ class AddProject extends Component {
             {/* photo */}
             <div className="add_project_photo">
               <h2>Project Photo</h2>
-              <div className="add_project_photo_border">
-                <div className="add_project_photo_input_holder">
-                  <input type="file" name="photo" accept="image/*" />
-                  <i className="fas fa-images" />
-                </div>
+
+              <div className="add_project_photo_holder">
+                {/* start adding photo */}
+                {(!this.state.image.length && (
+                  <div className="start_adding_photo">
+                    <i className="fas fa-plus" />
+                    <input
+                      type="file"
+                      name="image"
+                      accept="image/*"
+                      value={this.state.image}
+                      onChange={this.onChange}
+                    />
+                  </div>
+                )) || (
+                  <>
+                    {this.state.image.map((item, index) => {
+                      return (
+                        <div key={index} className="add_project_photo_border">
+                          <div className="add_project_photo_input_holder">
+                            <i className="fas fa-images" />
+                            {/* <img></img> */}
+                          </div>
+                        </div>
+                      );
+                    })}
+
+                    <div className="add_project_photo_border">
+                      <div className="add_project_photo_add_another_photo">
+                        <i className="fas fa-plus" />
+                        <input
+                          type="file"
+                          name="image"
+                          accept="image/*"
+                          value={this.state.imageArr}
+                          onChange={this.onChange}
+                        />
+                      </div>
+                    </div>
+                  </>
+                )}
+
+                {/* photo arrat */}
               </div>
             </div>
 
