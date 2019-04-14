@@ -12,6 +12,15 @@ const projectsSchema = new mongoose.Schema({
   },
   description: {
     type: String
+  },
+  created: {
+    type: Date,
+    default: Date.now
+  },
+  update: Date,
+  photo: {
+    data: Buffer,
+    contentType: String
   }
 });
 

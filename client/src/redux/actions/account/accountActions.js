@@ -6,10 +6,12 @@ import { decodeToken } from "../../../utils/decodeToken";
 import { setCurrentUser } from "../../../utils/setCurrentUser";
 
 //
-// ─── EDIT USER ──────────────────────────────────────────────────────────────────
+// ─── EDIT ACCOUNT ──────────────────────────────────────────────────────────────────
 //
 
 export const updateAccount = (user, id, reset) => dispatch => {
+  const token = localStorage.getItem("jwt");
+
   // this is for reset reducers message
   if (reset) {
     return dispatch({
@@ -26,7 +28,6 @@ export const updateAccount = (user, id, reset) => dispatch => {
     });
   }
 
-  const token = localStorage.getItem("jwt");
   return fetch(`/user/${id}`, {
     method: "PUT",
     headers: {

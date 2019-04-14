@@ -1,29 +1,58 @@
 import React, { Component } from "react";
 import ReactQuill from "react-quill";
 import "react-quill/dist/quill.snow.css";
+import { connect } from "react-redux";
+import PropTypes from "prop-types";
+
+// redux methods
+import { createProject } from "../../../../redux/actions/projects/projectsActions";
 
 class AddProject extends Component {
   constructor() {
     super();
 
     this.state = {
-      text: "",
-      image: []
+      image: [],
+      name: "",
+      title: "",
+      category: "",
+      description: ""
     };
+
+    this.projectsData = new FormData();
   }
 
   onChange = e => {
-    const arr = [...this.state.image, e.target.value];
-
+    let arr;
     if (e.target.name === "image") {
-      this.setState({
-        [e.target.name]: arr
-      });
+      arr = [...this.state.image, e.target.files[0]];
     }
+    const value = e.target.name === "image" ? arr : e.target.value;
+
+    this.setState({
+      [e.target.name]: value
+    });
+
+    console.log(this.state);
+    this.projectsData.append(e.target.name, value);
+  };
+
+  descriptionHandleChange = value => {
+    this.setState({ description: value });
+  };
+
+  onSubmit = e => {
+    e.preventDefault();
+    // const project = {
+    //   name: this.state.name,
+    //   title: this.state.title,
+    //   category: this.state.category,
+    //   description: this.state.description
+    // };
+    this.props.createProject(this.projectsData);
   };
 
   render() {
-    console.log(this.state.image);
     return (
       <form onSubmit={this.onSubmit}>
         <div className="add_project">
@@ -65,15 +94,12 @@ class AddProject extends Component {
                           type="file"
                           name="image"
                           accept="image/*"
-                          value={this.state.imageArr}
                           onChange={this.onChange}
                         />
                       </div>
                     </div>
                   </>
                 )}
-
-                {/* photo arrat */}
               </div>
             </div>
 
@@ -83,21 +109,45 @@ class AddProject extends Component {
               <div className="add_project_general_info_border">
                 <div className="add_project_input_holder">
                   <label>Project Name</label>
-                  <input type="text" name="projectName" />
+                  <input
+                    type="text"
+                    name="name"
+                    value={this.state.name}
+                    onChange={this.onChange}
+                  />
                 </div>
                 <div className="add_project_input_holder">
                   <label>Project Title</label>
-                  <input type="text" name="projectTile" />
+                  <input
+                    type="text"
+                    name="title"
+                    value={this.state.title}
+                    onChange={this.onChange}
+                  />
                 </div>
                 <div className="add_project_input_holder">
                   <div className="add_project_input_holder_select">
                     <label>Category</label>
-                    <select>
-                      <option className="option">HTML/CSS</option>
-                      <option className="option">Javascript</option>
-                      <option className="option"> React</option>
-                      <option className="option">Node</option>
-                      <option className="option">Fullstack</option>
+                    <select
+                      value={this.state.category}
+                      onChange={this.onChange}
+                      name="category"
+                    >
+                      <option className="option" value="html">
+                        HTML/CSS
+                      </option>
+                      <option className="option" value="javascript">
+                        Javascript
+                      </option>
+                      <option className="option" value="react">
+                        React
+                      </option>
+                      <option className="option" value="node">
+                        Node
+                      </option>
+                      <option className="option" value="fullstack">
+                        Fullstack
+                      </option>
                     </select>
                   </div>
                 </div>
@@ -119,8 +169,8 @@ class AddProject extends Component {
             <div className="project_description">
               <h2>Project Description</h2>
               <ReactQuill
-                value={this.state.text}
-                onChange={this.handleChange}
+                value={this.state.description}
+                onChange={this.descriptionHandleChange}
                 theme="snow"
                 modules={AddProject.modules}
                 formats={AddProject.formats}
@@ -137,6 +187,10 @@ class AddProject extends Component {
     );
   }
 }
+
+AddProject.propTypes = {
+  createProject: PropTypes.func
+};
 
 AddProject.modules = {
   toolbar: [
@@ -169,4 +223,7 @@ AddProject.formats = [
   "align"
 ];
 
-export default AddProject;
+export default connect(
+  null,
+  { createProject }
+)(AddProject);

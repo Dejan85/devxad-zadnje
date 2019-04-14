@@ -60,6 +60,8 @@ class EditAccount extends Component {
     e.preventDefault();
     // now we update user for real
     this.props.updateAccount(this.userData, this.props.auth._id, null);
+
+    // redirection from redux
     if (this.props.message) {
       this.props.dashboardNavigation("account");
     }

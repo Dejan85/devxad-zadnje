@@ -41,6 +41,7 @@ exports.updateAccount = (req, res, next) => {
   // console.log("incoming form data: ", form);
   form.keepExtensions = true;
   form.parse(req, (err, fields, files) => {
+    console.log(files);
     if (err) {
       return res.status(400).json({
         error: "Photo could not be uploaded"

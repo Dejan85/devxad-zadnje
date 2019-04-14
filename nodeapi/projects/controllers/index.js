@@ -1,4 +1,7 @@
 const Projects = require("../models");
+const formidable = require("formidable");
+const _ = require("lodash");
+const fs = require("fs");
 
 //
 // ─── CREATE PROJECT ─────────────────────────────────────────────────────────────
@@ -6,17 +9,31 @@ const Projects = require("../models");
 
 exports.createProject = (req, res) => {
   const project = new Projects(req.body);
-  project.save((err, result) => {
+  let form = new formidable.IncomingForm();
+  form.multiples = true;
+  //   form.keepExtensions = true;
+  form.parse(req, (err, fields, files) => {
     if (err) {
       return res.status(400).json({
-        err
-      });
-    } else {
-      return res.status(200).json({
-        message: "Project create successfully",
-        result
+        error: "Photos could not be uploaded"
       });
     }
+
+    console.log(files);
+    console.log(fields.image);
+
+    // project.save((err, result) => {
+    //   if (err) {
+    //     return res.status(400).json({
+    //       err
+    //     });
+    //   } else {
+    //     return res.status(200).json({
+    //       message: "Project create successfully",
+    //       result
+    //     });
+    //   }
+    // });
   });
 };
 
@@ -89,7 +106,7 @@ exports.editProject = (req, res) => {
 //
 
 exports.deleteProjects = (req, res) => {
-  Projects.findByIdAndRemove(req.params.id, (err, result) => {
+  Projects.findByIdAndRemove(req.params.id, err => {
     if (err) {
       return res.status(400).json({
         err
