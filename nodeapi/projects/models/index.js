@@ -1,4 +1,5 @@
 const mongoose = require("mongoose");
+const { ObjectId } = mongoose.Schema;
 
 const projectsSchema = new mongoose.Schema({
   name: {
@@ -13,15 +14,20 @@ const projectsSchema = new mongoose.Schema({
   description: {
     type: String
   },
+  photo: {
+    data: Buffer,
+    contentType: String
+  },
+  postedBy: {
+    type: ObjectId,
+    ref: "User"
+  },
   created: {
     type: Date,
     default: Date.now
   },
   update: Date,
-  photo: {
-    data: Buffer,
-    contentType: String
-  }
+
 });
 
 module.exports = mongoose.model("Projects", projectsSchema);

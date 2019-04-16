@@ -3,15 +3,18 @@ const formidable = require("formidable");
 const _ = require("lodash");
 const fs = require("fs");
 
+
+
+
+
 //
 // ─── CREATE PROJECT ─────────────────────────────────────────────────────────────
 //
 
 exports.createProject = (req, res) => {
-  const project = new Projects(req.body);
   let form = new formidable.IncomingForm();
   form.multiples = true;
-  //   form.keepExtensions = true;
+  form.keepExtensions = true;
   form.parse(req, (err, fields, files) => {
     if (err) {
       return res.status(400).json({
@@ -19,21 +22,27 @@ exports.createProject = (req, res) => {
       });
     }
 
-    console.log(files);
-    console.log(fields.image);
+    let project = new Projects(fields);
 
-    // project.save((err, result) => {
-    //   if (err) {
-    //     return res.status(400).json({
-    //       err
-    //     });
-    //   } else {
-    //     return res.status(200).json({
-    //       message: "Project create successfully",
-    //       result
-    //     });
-    //   }
-    // });
+    // req.profile.hashed_password = undefined;
+    // req.profile.salt = undefined;
+    project.postedBy = req.profile
+
+    if (files.photo) {
+      projectMessage.photo.data = fs.readFileSync(files.photo.path)
+      project.photo.contentType = files.photo.type
+    }
+
+
+
+    project.save((err, result) => {
+      if (err) {
+        return res.status(400).json({
+          error: err
+        })
+      }
+      res.json(result)
+    })
   });
 };
 
@@ -42,17 +51,14 @@ exports.createProject = (req, res) => {
 //
 
 exports.getAllProjects = (req, res) => {
-  Projects.find((err, result) => {
-    if (err) {
-      return res.status(400).json({
-        err
-      });
-    } else {
-      return res.status(200).json({
-        result
-      });
-    }
-  });
+  Projects.find()
+    .populate("postedBy", "_id name")
+    .select("_id name title category description photo postedBy created")
+    .then((project) => {
+      res.json({ project })
+    }).catch((err) => {
+      console.log(err);
+    })
 };
 
 //
@@ -73,6 +79,8 @@ exports.getProjectById = (req, res) => {
     }
   });
 };
+
+
 
 //
 // ─── EDIT PROJECT BY ID ─────────────────────────────────────────────────────────
