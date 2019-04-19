@@ -4,12 +4,13 @@ import { PROJECT_CREATE } from "../../type/project/projectsType";
 // ─── CREATE PROJECTS ────────────────────────────────────────────────────────────
 //
 
-export const createProject = project => dispatch => {
-  return fetch("/projects/create", {
+export const createProject = (project, id) => dispatch => {
+  return fetch(`/projects/create/${id}`, {
     method: "POST",
     headers: {
       Accept: "application/json"
     },
+    // body: JSON.stringify(project)
     body: project
   })
     .then(res => {
@@ -27,7 +28,6 @@ export const createProject = project => dispatch => {
 //
 
 export const getAllProjects = () => dispatch => {
-  console.log("radi");
   fetch("/projects/get", {
     method: "GET",
     headers: {

@@ -20,6 +20,8 @@ class AddProject extends Component {
     };
 
     this.projectsData = new FormData();
+    this.photoData = new FormData();
+
   }
 
   onChange = e => {
@@ -29,11 +31,12 @@ class AddProject extends Component {
     }
     const value = e.target.name === "image" ? arr : e.target.value;
 
+    console.log(value);
+
     this.setState({
       [e.target.name]: value
     });
 
-    console.log(this.state);
     this.projectsData.append(e.target.name, value);
   };
 
@@ -49,7 +52,7 @@ class AddProject extends Component {
     //   category: this.state.category,
     //   description: this.state.description
     // };
-    this.props.createProject(this.projectsData);
+    this.props.createProject(this.projectsData, this.props.user.user._id);
   };
 
   render() {
@@ -75,31 +78,31 @@ class AddProject extends Component {
                     />
                   </div>
                 )) || (
-                  <>
-                    {this.state.image.map((item, index) => {
-                      return (
-                        <div key={index} className="add_project_photo_border">
-                          <div className="add_project_photo_input_holder">
-                            <i className="fas fa-images" />
-                            {/* <img></img> */}
+                    <>
+                      {this.state.image.map((item, index) => {
+                        return (
+                          <div key={index} className="add_project_photo_border">
+                            <div className="add_project_photo_input_holder">
+                              <i className="fas fa-images" />
+                              {/* <img></img> */}
+                            </div>
                           </div>
-                        </div>
-                      );
-                    })}
+                        );
+                      })}
 
-                    <div className="add_project_photo_border">
-                      <div className="add_project_photo_add_another_photo">
-                        <i className="fas fa-plus" />
-                        <input
-                          type="file"
-                          name="image"
-                          accept="image/*"
-                          onChange={this.onChange}
-                        />
+                      <div className="add_project_photo_border">
+                        <div className="add_project_photo_add_another_photo">
+                          <i className="fas fa-plus" />
+                          <input
+                            type="file"
+                            name="image"
+                            accept="image/*"
+                            onChange={this.onChange}
+                          />
+                        </div>
                       </div>
-                    </div>
-                  </>
-                )}
+                    </>
+                  )}
               </div>
             </div>
 
@@ -189,7 +192,8 @@ class AddProject extends Component {
 }
 
 AddProject.propTypes = {
-  createProject: PropTypes.func
+  createProject: PropTypes.func,
+  user: PropTypes.object
 };
 
 AddProject.modules = {
@@ -223,7 +227,11 @@ AddProject.formats = [
   "align"
 ];
 
+const mapStateToProps = state => ({
+  user: state.auth.user
+})
+
 export default connect(
-  null,
+  mapStateToProps,
   { createProject }
 )(AddProject);

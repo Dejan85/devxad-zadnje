@@ -22,12 +22,34 @@ exports.createProject = (req, res) => {
       });
     }
 
+    // let arrayOfFiles = files[""];
+
+    // if (arrayOfFiles.length > 0) {
+    //   let fileNames = [];
+    //   arrayOfFiles.forEach((file) => {
+    //     fileNames.push(file.path)
+    //   });
+    //   res.json({
+    //     result: "ok",
+    //     data: fileNames,
+    //     numberOfImages: fileNames.length,
+    //     messege: "Upload images successfully"
+    //   })
+    // } else {
+    //   res.json({
+    //     result: "faild",
+    //     data: {},
+    //     numberOfImages: 0,
+    //     messege: "No images to upload"
+    //   })
+    // }
+
     let project = new Projects(fields);
 
     // req.profile.hashed_password = undefined;
     // req.profile.salt = undefined;
     project.postedBy = req.profile
-
+    console.log(files);
     if (files.photo) {
       projectMessage.photo.data = fs.readFileSync(files.photo.path)
       project.photo.contentType = files.photo.type
@@ -41,6 +63,7 @@ exports.createProject = (req, res) => {
           error: err
         })
       }
+      console.log(result);
       res.json(result)
     })
   });
